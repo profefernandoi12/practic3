@@ -1,0 +1,2 @@
+Hola. Este archivo se está creando de manera local a través de Visual Studio Code.
+La útima actualización se realizó hoy 13 de mayo de 2024 a las 12:10hs.
