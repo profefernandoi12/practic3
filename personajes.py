@@ -1,8 +1,10 @@
 personajes = ["Mario", "Luigi", "Peach"]
+j = len(personajes)
+print(j)
 a = 0
-while a < 3:
+while a < j:
     print(personajes[a])
-    if str(personajes[a]) == "Mario":
+    if str(personajes[a]) == 'Mario':
         personajes[a]="Nadine"
         print("Posición", a, " ", personajes[a])
     a = a + 1
