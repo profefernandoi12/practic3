@@ -1,0 +1,15 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+search_alumnos:
+  path: /search_alumno
+  controller: App\Controller\AlumnoController::search_alumnos
+
+search_tecnicatura:
+  path: /search_tecnicatura
+  controller: App\Controller\TecnicaturaController::search_tecnicatura
+
+search_docente:
+  path: /search_docente
+  controller: App\Controller\DocenteController::search_docente

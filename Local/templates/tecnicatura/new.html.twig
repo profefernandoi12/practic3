@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nueva Tecnicatura{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <h1>Crear Tecnicatura</h1>
+
+    {{ include('tecnicatura/_form.html.twig') }}
+
+    <a href="{{ path('app_tecnicatura_index') }}">Volver</a>
+</div>
+{% endblock %}

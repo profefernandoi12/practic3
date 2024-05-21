@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nueva Modalidad{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <h1>Crear nueva Modalidad</h1>
+
+    {{ include('modalidad/_form.html.twig') }}
+
+    <a href="{{ path('app_modalidad_index') }}">Volver</a>
+</div>    
+{% endblock %}

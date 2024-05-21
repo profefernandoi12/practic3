@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Estudiantes{% endblock %}
+
+{% block body %}
+    <h1>Estudiantes</h1>
+            <form action="{{ path('search_alumnos') }}" method="get">
+            <input type="number" name="dni" placeholder="Buscar por dni" class="form-control">            
+            <button type="submit" class="btn btn-info mt-1">Buscar</button>
+        </form>
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Titulo_sec</th>
+                <th>Escuela_sec</th>
+                <th>Anio_egreso</th>
+                <th>Dni/Pasaporte</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Partido</th>
+                <th>Calle</th>
+                <th>Numero</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for alumno in alumnos %}
+            <tr>
+                
+                <td>{{ alumno.tituloSec }}</td>
+                <td>{{ alumno.escuelaSec }}</td>
+                <td>{{ alumno.anioEgreso }}</td>
+                <td>{{ alumno.persona.dnipasaporte }}</td>
+                <td>{{ alumno.persona.nombre }}</td> 
+                <td>{{ alumno.persona.apellido }}</td>
+                <td>{{ alumno.persona.telefono }}</td> 
+                <td>{{ alumno.persona.partido}}</td>  
+                <td>{{ alumno.persona.calle }}</td>    
+                <td>{{ alumno.persona.numero }}</td>                                                             
+                <td>
+                    <a href="{{ path('app_alumno_show', {'id': alumno.id}) }}">Mostrar</a>
+                    {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+                        <a href="{{ path('app_alumno_edit', {'id': alumno.id}) }}">Editar</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">No se encontraron registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_alumno_new') }}">Nuevo Estudiante</a>
+{% endblock %}

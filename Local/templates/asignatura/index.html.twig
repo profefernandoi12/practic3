@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Asignatura index{% endblock %}
+
+{% block body %}
+    <h1>Asignatura</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Anio</th>
+                <th>Programa</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for asignatura in asignaturas %}
+            <tr>
+                <td>{{ asignatura.id }}</td>
+                <td>{{ asignatura.nombre }}</td>
+                <td>{{ asignatura.anio }}</td>
+                <td>{{ asignatura.programa }}</td>
+                <td>
+                    <a href="{{ path('app_asignatura_show', {'id': asignatura.id}) }}">Mostrar</a>
+                    {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+                        <a href="{{ path('app_asignatura_edit', {'id': asignatura.id}) }}">Editar</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+    <a href="{{ path('app_asignatura_new') }}">Crear nuevo</a>
+{% endif %}
+    
+{% endblock %}

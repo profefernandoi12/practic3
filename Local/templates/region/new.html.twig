@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nueva Region{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <h1>Crear nueva Region</h1>
+
+    {{ include('region/_form.html.twig') }}
+
+    <a href="{{ path('app_region_index') }}">Volver a la lista</a>
+</div>    
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ExamenFinal{% endblock %}
+
+{% block body %}
+    <h1>ExamenFinal</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Asignatura</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for examen_final in examen_finals %}
+            <tr>
+                <td>{{ examen_final.id }}</td>
+                <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ examen_final.asignatura }}</td>
+                <td>
+                    <a href="{{ path('app_examen_final_show', {'id': examen_final.id}) }}">Mostrar</a>
+                    {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+
+                    <a href="{{ path('app_examen_final_edit', {'id': examen_final.id}) }}">Editar</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+
+    <a href="{{ path('app_examen_final_new') }}">Crear nuevo</a>
+    {% endif %}
+{% endblock %}

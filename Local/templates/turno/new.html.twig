@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nuevo Turno{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Crear Turno</h1>
+
+    {{ include('turno/_form.html.twig') }}
+
+    <a href="{{ path('app_turno_index') }}">Volver</a>
+</div>
+{% endblock %}
