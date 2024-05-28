@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cursadas{% endblock %}
+
+{% block body %}
+    <h1>Cursadas</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Ciclo_lectivo</th>
+                <th>Alumno</th>
+                <th>Asignatura</th>
+                <th>Comision</th>
+                <th>Libre</th>
+                <th>Nota1</th>
+                <th>Nota2</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cursada in cursadas %}
+            <tr>
+                
+                <td>{{ cursada.cicloLectivo }}</td>
+                <td>{{ cursada.Alumno }}</td>
+                <td>{{ cursada.Asignatura }}</td>
+                <td>{{ cursada.Comision }}</td>
+                <td>{{ cursada.Libre }}</td>
+                <td>{{ cursada.Nota1 }}</td>
+                <td>{{ cursada.Nota2 }}</td>
+                <td>
+                    <a href="{{ path('app_cursada_show', {'id': cursada.id}) }}">Mostrar</a>
+                    {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+
+                    <a href="{{ path('app_cursada_edit', {'id': cursada.id}) }}">Editar</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no se encontraron registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+
+    <a href="{{ path('app_cursada_new') }}">Crear cursada</a>
+    {% endif %}
+{% endblock %}

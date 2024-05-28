@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Docente index{% endblock %}
+
+{% block body %}
+    <h1>Docente</h1>
+        <form action="{{ path('search_docente') }}" method="get">
+            <input type="number" name="dni" placeholder="Buscar por dni" class="form-control">            
+            <button type="submit" class="btn btn-info mt-1">Buscar</button>
+        </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fecha_ingreso</th>
+                <th>Dni/Pasaporte</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Partido</th>
+                <th>Calle</th>
+                <th>Numero</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for docente in docentes %}
+            <tr>
+                <td>{{ docente.id }}</td>
+                <td>{{ docente.fechaIngreso ? docente.fechaIngreso|date('Y-m-d') : '' }}</td>
+                <td>{{ docente.persona.dnipasaporte }}</td>
+                <td>{{ docente.persona.nombre }}</td> 
+                <td>{{ docente.persona.apellido }}</td>
+                <td>{{ docente.persona.telefono }}</td> 
+                <td>{{ docente.persona.partido}}</td>  
+                <td>{{ docente.persona.calle }}</td>    
+                <td>{{ docente.persona.numero }}</td>                 
+                <td>
+                    <a href="{{ path('app_docente_show', {'id': docente.id}) }}">Mostrar</a>
+                    <a href="{{ path('app_docente_edit', {'id': docente.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_docente_new') }}">Crear nuevo</a>
+{% endblock %}

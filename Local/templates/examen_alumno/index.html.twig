@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ExamenAlumno index{% endblock %}
+
+{% block body %}
+    <h1>ExamenAlumno index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Asignatura</th>
+                <th>Cursada Ciclo Lectivo</th>
+                <th>Cursada Libre</th>
+                <th>Cursando Alumno</th>
+                <th>Nota</th>
+                <th>Tomo</th>
+                <th>Folio</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for examen_alumno in examen_alumnos %}
+            <tr>
+                <td>{{ examen_alumno.id }}</td>
+                <td>{{ examen_alumno.examenfinal.asignatura }}</td>
+                <td>{{ examen_alumno.Cursada.ciclolectivo}}</td>
+                <td>{{ examen_alumno.Cursada.libre}}</td>
+                <td>{{ examen_alumno.Cursada.alumno.persona.nombre}}</td>
+                <td>{{ examen_alumno.nota }}</td>
+                <td>{{ examen_alumno.tomo }}</td>
+                <td>{{ examen_alumno.folio }}</td>
+                <td>
+                    <a href="{{ path('app_examen_alumno_show', {'id': examen_alumno.id}) }}">Mostrar</a>
+                    {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+                        <a href="{{ path('app_examen_alumno_edit', {'id': examen_alumno.id}) }}">Editar</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+    <a href="{{ path('app_examen_alumno_new') }}">Crear nuevo</a>
+{% endif %}
+{% endblock %}

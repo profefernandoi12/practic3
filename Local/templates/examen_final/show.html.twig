@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ExamenFinal{% endblock %}
+
+{% block body %}
+    <h1>ExamenFinal</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ examen_final.id }}</td>
+            </tr>
+            <tr>
+                <th>Asignatura</th>
+                <td>{{ examen_final.asignatura }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
+            </tr>
+
+            <tr>
+                <th>Presidente</th>
+                <td>{{ examen_final.Presidente }}</td>
+                <td><a href="{{ path('app_docente_show', {'id': examen_final.Presidente.id}) }}" style="display:block;">&nbsp;Ir a docente</a></td>
+                
+            </tr>
+
+            <tr>
+
+                <th>Vocal 1</th>
+                <td>{{ examen_final.Vocal1 }}</td>
+                <td><a href="{{ path('app_docente_show', {'id': examen_final.Vocal1.id}) }}" style="display:block;">&nbsp;Ir a docente</a></td>
+            </tr>
+
+            <tr>
+                <th>Vocal 2</th>
+                <td>{{ examen_final.Vocal2 }}</td>
+                <td><a href="{{ path('app_docente_show', {'id': examen_final.Vocal2.id}) }}" style="display:block;">&nbsp;Ir a docente</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_examen_final_index') }}">back to list</a>
+
+    <a href="{{ path('app_examen_final_edit', {'id': examen_final.id}) }}">edit</a>
+
+    {{ include('examen_final/_delete_form.html.twig') }}
+{% endblock %}

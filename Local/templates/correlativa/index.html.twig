@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Correlativa index{% endblock %}
+
+{% block body %}
+    <h1>Correlativa</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <td>Nombre Asignatura</td>
+                <td>Nombre Correlativa</td>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for correlativa in correlativas %}
+            <tr>
+                <td>{{ correlativa.id }}</td>
+                <td>{{correlativa.asignatura.nombre}}</td>
+                <td>{{correlativa.nombre}}</td>
+                <td>
+                    <a href="{{ path('app_correlativa_show', {'id': correlativa.id}) }}">Mostrar</a>
+                    {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+
+                        <a href="{{ path('app_correlativa_edit', {'id': correlativa.id}) }}">Editar</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+
+    <a href="{{ path('app_correlativa_new') }}">Crear nuevo</a>
+{% endif %}    
+{% endblock %}

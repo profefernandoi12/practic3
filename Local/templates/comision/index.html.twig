@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comisiones{% endblock %}
+
+{% block body %}
+    <h1>Comisiones</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Año</th>
+                <th>Comision</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comision in comisions %}
+            <tr>
+                
+                <td>{{ comision.anio }}</td>
+                <td>{{ comision.comision }}</td>
+                <td>
+                    <a href="{{ path('app_comision_show', {'id': comision.id}) }}">Mostrar</a>
+                    {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+
+                        <a href="{{ path('app_comision_edit', {'id': comision.id}) }}">Editar</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no se encontraron registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+
+    <a href="{{ path('app_comision_new') }}">Crear registro</a>
+{% endif %}
+{% endblock %}

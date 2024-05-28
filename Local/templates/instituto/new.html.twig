@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nuevo Instituto{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <h1>Crear nuevo Instituto</h1>
+
+    {{ include('instituto/_form.html.twig') }}
+
+    <a href="{{ path('app_instituto_index') }}">Volver a la lista</a>
+    </div>
+{% endblock %}

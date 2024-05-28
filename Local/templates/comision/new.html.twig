@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nueva Comision{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Crear Comision</h1>
+
+    {{ include('comision/_form.html.twig') }}
+
+    <a href="{{ path('app_comision_index') }}">Volver</a>
+</div>
+{% endblock %}

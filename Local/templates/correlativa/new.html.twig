@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nueva Correlativa{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Crear nueva Correlativa</h1>
+
+    {{ include('correlativa/_form.html.twig') }}
+
+    <a href="{{ path('app_correlativa_index') }}">Volver a la lista</a>
+</div>
+{% endblock %}

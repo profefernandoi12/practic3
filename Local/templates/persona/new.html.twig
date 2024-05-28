@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Persona{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <h1>Create new Persona</h1>
+
+    {{ include('persona/_form.html.twig') }}
+
+    <a href="{{ path('app_persona_index') }}">Volver a la lista</a>
+</div>
+{% endblock %}
