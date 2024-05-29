@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class CorrelativaType extends AbstractType
 {
@@ -19,9 +20,8 @@ class CorrelativaType extends AbstractType
             'choice_label' => 'nombre',
             'attr' => ['class' => 'form-control']
         ])
-            ->add('nombre',EntityType::class,[
-                'class' => Asignatura::class,
-                'choice_label' => 'nombre',
+            ->add('nombre',TextType::class,[
+                'label' => 'Correlativa',
                 'attr' => ['class' => 'form-control']
             ])
         ;
