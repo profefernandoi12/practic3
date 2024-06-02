@@ -15,7 +15,7 @@ class PreinscripcionType extends AbstractType
         $builder
             ->add('fecha')
             ->add('alumno', AlumnoType::class) // Agrega el formulario de Alumno
-            ->add('ofertaEducativa',OfertaEducativaType::class)           
+            ->add('ofertaeducativa',OfertaEducativaType::class)           
         ;
     }
 

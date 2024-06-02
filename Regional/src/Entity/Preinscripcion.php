@@ -23,7 +23,7 @@ class Preinscripcion
 
     #[ORM\ManyToOne(inversedBy: 'preinscripcion')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?OfertaEducativa $ofertaEducativa = null;
+    private ?OfertaEducativa $ofertaeducativa = null;
 
     public function getId(): ?int
     {
@@ -56,12 +56,12 @@ class Preinscripcion
 
     public function getOfertaEducativa(): ?OfertaEducativa
     {
-        return $this->ofertaEducativa;
+        return $this->ofertaeducativa;
     }
 
-    public function setOfertaEducativa(?OfertaEducativa $ofertaEducativa): static
+    public function setOfertaEducativa(?OfertaEducativa $ofertaeducativa): static
     {
-        $this->ofertaEducativa = $ofertaEducativa;
+        $this->ofertaeducativa = $ofertaeducativa;
 
         return $this;
     }
@@ -70,11 +70,11 @@ class Preinscripcion
     public function __toString(): string
     {
         return sprintf(
-            'ID: %s | Fecha: %s | Alumno: %s | Oferta Educativa: %s',
+            'ID: %s | Fecha: %s | Alumno: %s | OfertaEducativa: %s',
             $this->id,
             $this->fecha ? $this->fecha->format('Y-m-d') : 'N/A',
             $this->alumno ? $this->alumno->getId() : 'N/A',
-            $this->ofertaEducativa ? $this->ofertaEducativa->getId() : 'N/A'
+            $this->ofertaeducativa ? $this->ofertaeducativa->getId() : 'N/A'
         );
     }
 

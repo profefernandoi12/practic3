@@ -13,15 +13,15 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/ofertaeducativa')]
 class OfertaEducativaController extends AbstractController
 {
-    #[Route('/', name: 'app_oferta_educativa_index', methods: ['GET'])]
-    public function index(OfertaEducativaRepository $ofertaEducativaRepository): Response
+    #[Route('/', name: 'app_ofertaeducativa_index', methods: ['GET'])]
+    public function index(OfertaEducativaRepository $OfertaEducativaRepository): Response
     {
-        return $this->render('oferta_educativa/index.html.twig', [
-            'oferta_educativas' => $ofertaEducativaRepository->findAll(),
+        return $this->render('ofertaeducativa/index.html.twig', [
+            'ofertaeducativas' => $fertaEducativaRepository->findAll(),
         ]);
     }
 
-    #[Route('/new', name: 'app_oferta_educativa_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_ofertaeducativa_new', methods: ['GET', 'POST'])]
     public function new(Request $request, OfertaEducativaRepository $ofertaEducativaRepository): Response
     {
         $ofertaEducativa = new OfertaEducativa();
@@ -31,24 +31,31 @@ class OfertaEducativaController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $ofertaEducativaRepository->save($ofertaEducativa, true);
 
-            return $this->redirectToRoute('app_oferta_educativa_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_ofertaeducativa_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('oferta_educativa/new.html.twig', [
-            'oferta_educativa' => $ofertaEducativa,
+        return $this->renderForm('ofertaeducativa/new.html.twig', [
+            'ofertaeducativa' => $ofertaEducativa,
             'form' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'app_oferta_educativa_show', methods: ['GET'])]
-    public function show(OfertaEducativa $ofertaEducativa): Response
+    #[Route('/{id}', name: 'app_ofertaeducativa_show', methods: ['GET'])]
+    public function show(int $id, OfertaEducativaRepository $ofertaEducativaRepository): Response
     {
-        return $this->render('oferta_educativa/show.html.twig', [
-            'oferta_educativa' => $ofertaEducativa,
+        $ofertaEducativa = $ofertaEducativaRepository->find($id);
+    
+        if (!$ofertaEducativa) {
+            throw $this->createNotFoundException('No se encontró la oferta educativa con id ' . $id);
+        }
+    
+        return $this->render('ofertaeducativa/show.html.twig', [
+            'ofertaeducativa' => $ofertaEducativa,
         ]);
     }
+    
 
-    #[Route('/{id}/edit', name: 'app_oferta_educativa_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'app_ofertaeducativa_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, OfertaEducativa $ofertaEducativa, OfertaEducativaRepository $ofertaEducativaRepository): Response
     {
         $form = $this->createForm(OfertaEducativaType::class, $ofertaEducativa);
@@ -57,22 +64,22 @@ class OfertaEducativaController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $ofertaEducativaRepository->save($ofertaEducativa, true);
 
-            return $this->redirectToRoute('app_oferta_educativa_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_ofertaeducativa_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('oferta_educativa/edit.html.twig', [
-            'oferta_educativa' => $ofertaEducativa,
+        return $this->renderForm('ofertaeducativa/edit.html.twig', [
+            'ofertaeducativa' => $ofertaEducativa,
             'form' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'app_oferta_educativa_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'app_ofertaeducativa_delete', methods: ['POST'])]
     public function delete(Request $request, OfertaEducativa $ofertaEducativa, OfertaEducativaRepository $ofertaEducativaRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$ofertaEducativa->getId(), $request->request->get('_token'))) {
             $ofertaEducativaRepository->remove($ofertaEducativa, true);
         }
 
-        return $this->redirectToRoute('app_oferta_educativa_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_ofertaeducativa_index', [], Response::HTTP_SEE_OTHER);
     }
 }

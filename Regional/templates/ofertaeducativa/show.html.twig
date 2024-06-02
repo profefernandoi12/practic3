@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OfertaEducativa{% endblock %}
+
+{% block body %}
+    <h1>OfertaEducativa</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Ciclo_lectivo</th>
+                <td>{{ ofertaeducativa.cicloLectivo }}</td>
+            </tr>
+            <tr>
+                <th>Cupo</th>
+                <td>{{ ofertaeducativa.cupo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ofertaeducativa_index') }}">Volver</a>
+
+    <a href="{{ path('app_ofertaeducativa_edit', {'id': ofertaeducativa.id}) }}">Editar</a>
+
+    {{ include('ofertaeducativa/_delete_form.html.twig') }}
+{% endblock %}

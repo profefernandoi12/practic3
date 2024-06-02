@@ -167,17 +167,23 @@ class __TwigTemplate_4f24ab08e8df634735c140b02a0973ae extends Template
             // line 43
             yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_alumno_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["alumno"], "id", [], "any", false, false, false, 43)]), "html", null, true);
             yield "\">Mostrar</a>
-                    <a href=\"";
+                    ";
             // line 44
-            yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_alumno_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["alumno"], "id", [], "any", false, false, false, 44)]), "html", null, true);
-            yield "\">Editar</a>
-                </td>
+            if (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN"))) {
+                // line 45
+                yield "                        <a href=\"";
+                yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_alumno_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["alumno"], "id", [], "any", false, false, false, 45)]), "html", null, true);
+                yield "\">Editar</a>
+                    ";
+            }
+            // line 47
+            yield "                </td>
             </tr>
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 48
+            // line 50
             yield "            <tr>
                 <td colspan=\"5\">No se encontraron registros</td>
             </tr>
@@ -186,12 +192,12 @@ class __TwigTemplate_4f24ab08e8df634735c140b02a0973ae extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['alumno'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 52
+        // line 54
         yield "        </tbody>
     </table>
 
     <a href=\"";
-        // line 55
+        // line 57
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_alumno_new");
         yield "\">Nuevo Estudiante</a>
 ";
@@ -225,7 +231,7 @@ class __TwigTemplate_4f24ab08e8df634735c140b02a0973ae extends Template
      */
     public function getDebugInfo()
     {
-        return array (  195 => 55,  190 => 52,  181 => 48,  172 => 44,  168 => 43,  163 => 41,  159 => 40,  155 => 39,  151 => 38,  147 => 37,  143 => 36,  139 => 35,  135 => 34,  131 => 33,  127 => 32,  123 => 30,  118 => 29,  93 => 7,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
+        return array (  201 => 57,  196 => 54,  187 => 50,  180 => 47,  174 => 45,  172 => 44,  168 => 43,  163 => 41,  159 => 40,  155 => 39,  151 => 38,  147 => 37,  143 => 36,  139 => 35,  135 => 34,  131 => 33,  127 => 32,  123 => 30,  118 => 29,  93 => 7,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -273,7 +279,9 @@ class __TwigTemplate_4f24ab08e8df634735c140b02a0973ae extends Template
                 <td>{{ alumno.persona.numero }}</td>                                                             
                 <td>
                     <a href=\"{{ path('app_alumno_show', {'id': alumno.id}) }}\">Mostrar</a>
-                    <a href=\"{{ path('app_alumno_edit', {'id': alumno.id}) }}\">Editar</a>
+                    {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+                        <a href=\"{{ path('app_alumno_edit', {'id': alumno.id}) }}\">Editar</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -286,6 +294,6 @@ class __TwigTemplate_4f24ab08e8df634735c140b02a0973ae extends Template
 
     <a href=\"{{ path('app_alumno_new') }}\">Nuevo Estudiante</a>
 {% endblock %}
-", "alumno/index.html.twig", "F:\\xampp\\htdocs\\Local\\templates\\alumno\\index.html.twig");
+", "alumno/index.html.twig", "C:\\xampp\\htdocs\\GitHub\\practic3\\Local\\templates\\alumno\\index.html.twig");
     }
 }

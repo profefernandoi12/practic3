@@ -61,7 +61,7 @@ class Distrito
         return $this;
     }
 
-    public function removeLocalidade(Localidad $localidade): static
+/**public function removeLocalidade(Localidad $localidade): static
     {
         if ($this->localidades->removeElement($localidade)) {
             // set the owning side to null (unless already changed)
@@ -71,5 +71,5 @@ class Distrito
         }
 
         return $this;
-    }
+    } **/
 }

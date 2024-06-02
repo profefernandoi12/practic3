@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar OfertaEducativa{% endblock %}
+
+{% block body %}
+    <h1>Editar OfertaEducativa</h1>
+
+    {{ include('ofertaeducativa/_form.html.twig', {'button_label': 'Actualizar'}) }}
+
+    <a href="{{ path('app_ofertaeducativa_index') }}">Volver</a>
+
+    {{ include('ofertaeducativa/_delete_form.html.twig') }}
+{% endblock %}

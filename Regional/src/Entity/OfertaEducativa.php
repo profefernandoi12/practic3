@@ -24,15 +24,15 @@ class OfertaEducativa
     #[ORM\OneToMany(mappedBy: 'ofertaEducativa', targetEntity: Preinscripcion::class)]
     private Collection $preinscripcion;
 
-    #[ORM\ManyToOne(inversedBy: 'ofertaeducativa')]
+    #[ORM\ManyToOne(inversedBy: 'ofertaEducativas')] // Use plural if the relation is ManyToOne
     #[ORM\JoinColumn(nullable: false)]
     private ?Tecnicatura $tecnicatura = null;
 
-    #[ORM\ManyToOne(inversedBy: 'ofertaeducativa')]
+    #[ORM\ManyToOne(inversedBy: 'ofertaEducativas')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Turno $turno = null;
 
-    #[ORM\ManyToOne(inversedBy: 'ofertaeducativa')]
+    #[ORM\ManyToOne(inversedBy: 'ofertaEducativas')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Instituto $instituto = null;
 
@@ -138,13 +138,14 @@ class OfertaEducativa
 
     public function __toString(): string
     {
+        // Handle potential null values gracefully
         return sprintf(
-            'Tecnicatura: %s, Turno: %s, Instituto: %s, Ciclo Lectivo: %d',
-            $this->tecnicatura->getNombre(),
-            $this->turno->getDescripcion(),
-            $this->instituto->getNumero(),
+            'Tecnicatura: %s, Turno: %s, Instituto: %s, CicloLectivo: %d',
+            $this->tecnicatura ? $this->tecnicatura->getNombre() : 'N/A',
+            $this->turno ? $this->turno->getDescripcion() : 'N/A',
+            $this->instituto ? $this->instituto->getNumero() : 'N/A',
             $this->ciclo_lectivo ?? 0
         );
     }
-
 }
+
