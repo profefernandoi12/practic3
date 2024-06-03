@@ -6,6 +6,7 @@ use App\Entity\Docente;
 use App\Entity\Persona;
 use App\Form\DocenteType;
 use App\Repository\DocenteRepository;
+use App\Repository\PersonaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -77,14 +78,13 @@ class DocenteController extends AbstractController
         return $this->redirectToRoute('app_docente_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    public function search_docente(Request $request,DocenteRepository $docenteRepository):Response{
+    public function search_docente(Request $request,DocenteRepository $docenteRepository,PersonaRepository $personaRepository):Response{
         $dni = $request->query->get('dni');
-        $persona = $this->getDoctrine()->getRepository(Persona::class)->findBy(['dni_pasaporte' => $dni]);        
-        $persona_id = array_values($persona);
-        $value = $persona_id[0];
+        $persona = $personaRepository->findBy(['dni_pasaporte' => $dni]);        
+
         return $this->render('docente/index.html.twig', [  
             'persona' => $persona,  
-            'docentes' => $docenteRepository->findBy(['persona' => $value]),                   
+            'docentes' => $docenteRepository->findBy(['persona' => $persona]),                   
         ]);
     }
 }
