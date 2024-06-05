@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Alumno;
 use App\Entity\Persona;
 use App\Form\AlumnoType;
+use App\Form\PersonaType;
 use App\Repository\AlumnoRepository;
+use App\Repository\PersonaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -77,15 +79,30 @@ class AlumnoController extends AbstractController
         return $this->redirectToRoute('app_alumno_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    public function search_alumnos(Request $request,AlumnoRepository $alumnoRepository):Response{
+    public function search_alumnos(Request $request,AlumnoRepository $alumnoRepository,PersonaRepository $personaRepository):Response{
         $dni = $request->query->get('dni');        
-        $persona = $this->getDoctrine()->getRepository(Persona::class)->findBy(['dni_pasaporte' => $dni]);
-        $persona_id = array_values($persona);
-        $value = $persona_id[0];
+        $persona = $personaRepository->findBy(['dni_pasaporte' => $dni]);
+
         return $this->render('alumno/index.html.twig', [
             'persona' => $persona,
-            'alumnos' => $alumnoRepository->findBy(['persona' => $value]),
+            'alumnos' => $alumnoRepository->findBy(['persona' => $persona]),
         ]);
 
+    }
+
+    public function add_alumno_persona(Request $request, PersonaRepository $personaRepository): Response {
+        $persona = new Persona();
+        $form = $this->createForm(PersonaType::class, $persona);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $personaRepository->save($persona, true);
+            return $this->redirectToRoute('app_alumno_new', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('persona/new.html.twig', [
+            'persona' => $persona,
+            'form' => $form,
+        ]);
     }
 }

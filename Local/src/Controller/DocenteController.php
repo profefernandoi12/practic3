@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Docente;
 use App\Entity\Persona;
 use App\Form\DocenteType;
+use App\Form\PersonaType;
 use App\Repository\DocenteRepository;
+use App\Repository\PersonaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -77,14 +79,30 @@ class DocenteController extends AbstractController
         return $this->redirectToRoute('app_docente_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    public function search_docente(Request $request,DocenteRepository $docenteRepository):Response{
+    public function search_docente(Request $request,DocenteRepository $docenteRepository,PersonaRepository $personaRepository):Response{
         $dni = $request->query->get('dni');
-        $persona = $this->getDoctrine()->getRepository(Persona::class)->findBy(['dni_pasaporte' => $dni]);        
-        $persona_id = array_values($persona);
-        $value = $persona_id[0];
+        $persona = $personaRepository->findBy(['dni_pasaporte' => $dni]);        
+
         return $this->render('docente/index.html.twig', [  
             'persona' => $persona,  
-            'docentes' => $docenteRepository->findBy(['persona' => $value]),                   
+            'docentes' => $docenteRepository->findBy(['persona' => $persona]),                   
         ]);
+    }
+
+    public function add_docente_persona(Request $request, PersonaRepository $personaRepository): Response {
+        $persona = new Persona();
+        $form = $this->createForm(PersonaType::class, $persona);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $personaRepository->save($persona, true);
+            return $this->redirectToRoute('app_docente_new', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('persona/new.html.twig', [
+            'persona' => $persona,
+            'form' => $form,
+        ]);
+
     }
 }

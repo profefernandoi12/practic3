@@ -3,12 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Alumno;
-use App\Form\PersonaType;
+use App\Entity\Persona;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class AlumnoType extends AbstractType
 {
@@ -27,8 +28,12 @@ class AlumnoType extends AbstractType
                 'label' => 'Año de Egreso',
                 'attr' => ['class' => 'form-control']
             ])
-            ->add('persona',PersonaType::class,[
-                'label' => false
+            ->add('persona',EntityType::class,[
+                'class' => Persona::class,
+                'choice_label' => function($persona){
+                    return 'Nombre : ' . $persona->getNombre() . ' , '. 'Apellido :' . $persona->getApellido() . ' , ' . 'Dni :' . $persona->getDnipasaporte();
+                },
+                'attr' => ['class' => 'form-control']
             ])
         ;
     }
