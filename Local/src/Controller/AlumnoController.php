@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Alumno;
 use App\Entity\Persona;
 use App\Form\AlumnoType;
+use App\Form\PersonaType;
 use App\Repository\AlumnoRepository;
 use App\Repository\PersonaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -87,5 +88,21 @@ class AlumnoController extends AbstractController
             'alumnos' => $alumnoRepository->findBy(['persona' => $persona]),
         ]);
 
+    }
+
+    public function add_alumno_persona(Request $request, PersonaRepository $personaRepository): Response {
+        $persona = new Persona();
+        $form = $this->createForm(PersonaType::class, $persona);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $personaRepository->save($persona, true);
+            return $this->redirectToRoute('app_alumno_new', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('persona/new.html.twig', [
+            'persona' => $persona,
+            'form' => $form,
+        ]);
     }
 }

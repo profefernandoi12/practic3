@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Docente;
 use App\Entity\Persona;
 use App\Form\DocenteType;
+use App\Form\PersonaType;
 use App\Repository\DocenteRepository;
 use App\Repository\PersonaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -86,5 +87,22 @@ class DocenteController extends AbstractController
             'persona' => $persona,  
             'docentes' => $docenteRepository->findBy(['persona' => $persona]),                   
         ]);
+    }
+
+    public function add_docente_persona(Request $request, PersonaRepository $personaRepository): Response {
+        $persona = new Persona();
+        $form = $this->createForm(PersonaType::class, $persona);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $personaRepository->save($persona, true);
+            return $this->redirectToRoute('app_docente_new', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('persona/new.html.twig', [
+            'persona' => $persona,
+            'form' => $form,
+        ]);
+
     }
 }
