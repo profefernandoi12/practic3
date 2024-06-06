@@ -87,17 +87,17 @@ class __TwigTemplate_58bfe5524758c3fa897769968051557c extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>Edit Correlativa</h1>
+        yield "    <h1>Editar Correlativa</h1>
 
     ";
         // line 8
-        yield Twig\Extension\CoreExtension::include($this->env, $context, "correlativa/_form.html.twig", ["button_label" => "Update"]);
+        yield Twig\Extension\CoreExtension::include($this->env, $context, "correlativa/_form.html.twig", ["button_label" => "Aceptar"]);
         yield "
 
     <a href=\"";
         // line 10
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_index");
-        yield "\">back to list</a>
+        yield "\">Volver a la lista</a>
 
     ";
         // line 12
@@ -144,14 +144,14 @@ class __TwigTemplate_58bfe5524758c3fa897769968051557c extends Template
 {% block title %}Edit Correlativa{% endblock %}
 
 {% block body %}
-    <h1>Edit Correlativa</h1>
+    <h1>Editar Correlativa</h1>
 
-    {{ include('correlativa/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('correlativa/_form.html.twig', {'button_label': 'Aceptar'}) }}
 
-    <a href=\"{{ path('app_correlativa_index') }}\">back to list</a>
+    <a href=\"{{ path('app_correlativa_index') }}\">Volver a la lista</a>
 
     {{ include('correlativa/_delete_form.html.twig') }}
 {% endblock %}
-", "correlativa/edit.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\correlativa\\edit.html.twig");
+", "correlativa/edit.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\correlativa\\edit.html.twig");
     }
 }

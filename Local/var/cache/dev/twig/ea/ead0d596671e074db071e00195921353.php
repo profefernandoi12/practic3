@@ -95,6 +95,6 @@ class __TwigTemplate_5faba8923732046b71685ceea7591ca9 extends Template
     {{ form_widget(form) }}
     <button class=\"btn btn-success mt-1\">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
-", "comision/_form.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\comision\\_form.html.twig");
+", "comision/_form.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\comision\\_form.html.twig");
     }
 }

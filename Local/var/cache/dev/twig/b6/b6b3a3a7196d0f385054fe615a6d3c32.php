@@ -87,16 +87,16 @@ class __TwigTemplate_261ca900356cb42a0778dd13d0212c85 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>Asignatura</h1>
+        yield "    <h1>Listado de Asignaturas</h1>
 
     <table class=\"table\">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Anio</th>
+                <th>Año de la carrera</th>
                 <th>Programa</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -209,16 +209,16 @@ class __TwigTemplate_261ca900356cb42a0778dd13d0212c85 extends Template
 {% block title %}Asignatura index{% endblock %}
 
 {% block body %}
-    <h1>Asignatura</h1>
+    <h1>Listado de Asignaturas</h1>
 
     <table class=\"table\">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Anio</th>
+                <th>Año de la carrera</th>
                 <th>Programa</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -247,6 +247,6 @@ class __TwigTemplate_261ca900356cb42a0778dd13d0212c85 extends Template
 {% endif %}
     
 {% endblock %}
-", "asignatura/index.html.twig", "F:\\xampp\\htdocs\\Local\\templates\\asignatura\\index.html.twig");
+", "asignatura/index.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\asignatura\\index.html.twig");
     }
 }

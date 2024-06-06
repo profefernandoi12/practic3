@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Range;
 
 class AsignaturaType extends AbstractType
 {
@@ -20,9 +21,16 @@ class AsignaturaType extends AbstractType
                 'label' => 'Nombre',
                 'attr' => ['class' => 'form-control']
             ])
-            ->add('anio',NumberType::class,[
+            ->add('anio', NumberType::class, [
                 'label' => 'Año',
-                'attr' => ['class' => 'form-control']
+                'attr' => ['class' => 'form-control'],
+                'constraints' => [
+                    new Range([
+                        'min' => 1,
+                        'max' => 3, // Corrección aquí
+                        'minMessage' => 'El año de cursada debe ser 1, 2 o 3' 
+                    ])
+                ]
             ])
             ->add('programa',TextType::class,[
                 'label' => 'Programa',

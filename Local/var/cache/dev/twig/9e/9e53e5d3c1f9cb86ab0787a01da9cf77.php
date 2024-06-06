@@ -149,6 +149,6 @@ class __TwigTemplate_9a9c11a8b21f147bfebfd489a664b03c extends Template
     <a href=\"{{ path('app_comision_index') }}\">Volver</a>
 </div>
 {% endblock %}
-", "comision/new.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\comision\\new.html.twig");
+", "comision/new.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\comision\\new.html.twig");
     }
 }

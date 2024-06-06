@@ -149,6 +149,6 @@ class __TwigTemplate_049202069ede716cc8789fea13c6e722 extends Template
     <a href=\"{{ path('app_asignatura_index') }}\">Volver a la lista</a>
 </div>
 {% endblock %}
-", "asignatura/new.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\asignatura\\new.html.twig");
+", "asignatura/new.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\asignatura\\new.html.twig");
     }
 }

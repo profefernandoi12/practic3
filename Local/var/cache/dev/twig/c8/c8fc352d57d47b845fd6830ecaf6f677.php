@@ -87,7 +87,7 @@ class __TwigTemplate_e8eb3000330eb7305589be6fedcd86a4 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>Correlativa</h1>
+        yield "    <h1>Datos de la Correlativa</h1>
 
     <table class=\"table\">
         <tbody>
@@ -96,23 +96,37 @@ class __TwigTemplate_e8eb3000330eb7305589be6fedcd86a4 extends Template
                 <td>";
         // line 12
         yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, (isset($context["correlativa"]) || array_key_exists("correlativa", $context) ? $context["correlativa"] : (function () { throw new RuntimeError('Variable "correlativa" does not exist.', 12, $this->source); })()), "id", [], "any", false, false, false, 12), "html", null, true);
+        yield "</td>                
+            </tr>
+            <tr>
+                <th>Para aprobar</th>
+                <td>";
+        // line 16
+        yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["correlativa"]) || array_key_exists("correlativa", $context) ? $context["correlativa"] : (function () { throw new RuntimeError('Variable "correlativa" does not exist.', 16, $this->source); })()), "asignatura", [], "any", false, false, false, 16), "nombre", [], "any", false, false, false, 16), "html", null, true);
+        yield "</td>
+            </tr>
+            <tr>
+                <th>Deberá tener aprobado</th>
+                <td>";
+        // line 20
+        yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, (isset($context["correlativa"]) || array_key_exists("correlativa", $context) ? $context["correlativa"] : (function () { throw new RuntimeError('Variable "correlativa" does not exist.', 20, $this->source); })()), "nombre", [], "any", false, false, false, 20), "html", null, true);
         yield "</td>
             </tr>
         </tbody>
     </table>
 
     <a href=\"";
-        // line 17
+        // line 25
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_index");
-        yield "\">back to list</a>
+        yield "\">Volver</a>
 
     <a href=\"";
-        // line 19
-        yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["correlativa"]) || array_key_exists("correlativa", $context) ? $context["correlativa"] : (function () { throw new RuntimeError('Variable "correlativa" does not exist.', 19, $this->source); })()), "id", [], "any", false, false, false, 19)]), "html", null, true);
-        yield "\">edit</a>
+        // line 27
+        yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["correlativa"]) || array_key_exists("correlativa", $context) ? $context["correlativa"] : (function () { throw new RuntimeError('Variable "correlativa" does not exist.', 27, $this->source); })()), "id", [], "any", false, false, false, 27)]), "html", null, true);
+        yield "\"> Editar</a>
 
     ";
-        // line 21
+        // line 29
         yield Twig\Extension\CoreExtension::include($this->env, $context, "correlativa/_delete_form.html.twig");
         yield "
 ";
@@ -146,7 +160,7 @@ class __TwigTemplate_e8eb3000330eb7305589be6fedcd86a4 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  116 => 21,  111 => 19,  106 => 17,  98 => 12,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
+        return array (  130 => 29,  125 => 27,  120 => 25,  112 => 20,  105 => 16,  98 => 12,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -156,23 +170,31 @@ class __TwigTemplate_e8eb3000330eb7305589be6fedcd86a4 extends Template
 {% block title %}Correlativa{% endblock %}
 
 {% block body %}
-    <h1>Correlativa</h1>
+    <h1>Datos de la Correlativa</h1>
 
     <table class=\"table\">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ correlativa.id }}</td>
+                <td>{{ correlativa.id }}</td>                
+            </tr>
+            <tr>
+                <th>Para aprobar</th>
+                <td>{{correlativa.asignatura.nombre}}</td>
+            </tr>
+            <tr>
+                <th>Deberá tener aprobado</th>
+                <td>{{correlativa.nombre}}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_correlativa_index') }}\">back to list</a>
+    <a href=\"{{ path('app_correlativa_index') }}\">Volver</a>
 
-    <a href=\"{{ path('app_correlativa_edit', {'id': correlativa.id}) }}\">edit</a>
+    <a href=\"{{ path('app_correlativa_edit', {'id': correlativa.id}) }}\"> Editar</a>
 
     {{ include('correlativa/_delete_form.html.twig') }}
 {% endblock %}
-", "correlativa/show.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\correlativa\\show.html.twig");
+", "correlativa/show.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\correlativa\\show.html.twig");
     }
 }

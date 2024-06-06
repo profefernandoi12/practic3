@@ -463,7 +463,7 @@ class __TwigTemplate_fd893cf36d2024d05291e223cb8daab3 extends Template
             $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "macro", "dump_request_data"));
 
             // line 156
-            $macros["__internal_parse_1"] = $this;
+            $macros["__internal_parse_0"] = $this;
             // line 157
             yield "{
     id: \"";
@@ -480,7 +480,7 @@ class __TwigTemplate_fd893cf36d2024d05291e223cb8daab3 extends Template
             yield "\",
     events: [ ";
             // line 161
-            yield CoreExtension::callMacro($macros["__internal_parse_1"], "macro_dump_events", [(isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 161, $this->source); })())], 161, $context, $this->getSourceContext());
+            yield CoreExtension::callMacro($macros["__internal_parse_0"], "macro_dump_events", [(isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 161, $this->source); })())], 161, $context, $this->getSourceContext());
             yield " ],
 }
 ";
@@ -899,6 +899,6 @@ class __TwigTemplate_fd893cf36d2024d05291e223cb8daab3 extends Template
         {% endautoescape %}</script>
     </div>
 {% endmacro %}
-", "@WebProfiler/Collector/time.html.twig", "C:\\xampp\\htdocs\\Local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\time.html.twig");
+", "@WebProfiler/Collector/time.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\time.html.twig");
     }
 }
