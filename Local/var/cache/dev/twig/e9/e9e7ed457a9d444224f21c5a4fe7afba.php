@@ -95,6 +95,6 @@ class __TwigTemplate_5188267418a8f7a64f6e4e8f2bf47ffa extends Template
     {{ form_widget(form) }}
     <button class=\"btn btn-success mt-1\">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
-", "correlativa/_form.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\correlativa\\_form.html.twig");
+", "correlativa/_form.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\correlativa\\_form.html.twig");
     }
 }

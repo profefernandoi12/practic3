@@ -152,6 +152,6 @@ class __TwigTemplate_8aa57bb95af68df9e3c444f16e53eb0e extends Template
 
     {{ include('comision/_delete_form.html.twig') }}
 {% endblock %}
-", "comision/edit.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\comision\\edit.html.twig");
+", "comision/edit.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\comision\\edit.html.twig");
     }
 }

@@ -95,6 +95,6 @@ class __TwigTemplate_e496e47eb1ab4ad7a35e925341f5c54d extends Template
     {{ form_widget(form) }}
     <button class=\"btn btn-success mt-1\">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
-", "cursada/_form.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\cursada\\_form.html.twig");
+", "cursada/_form.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\cursada\\_form.html.twig");
     }
 }

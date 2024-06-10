@@ -149,6 +149,6 @@ class __TwigTemplate_52685e193e5c8064689e5a674ef0123f extends Template
     <a href=\"{{ path('app_correlativa_index') }}\">Volver a la lista</a>
 </div>
 {% endblock %}
-", "correlativa/new.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\correlativa\\new.html.twig");
+", "correlativa/new.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\correlativa\\new.html.twig");
     }
 }

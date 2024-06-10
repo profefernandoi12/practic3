@@ -151,6 +151,6 @@ class __TwigTemplate_82ba9193f36ec1fd45a437522af2ec30 extends Template
     <a href=\"{{ path('app_cursada_index') }}\">Volver</a>
 </div>
 {% endblock %}
-", "cursada/new.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\cursada\\new.html.twig");
+", "cursada/new.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\cursada\\new.html.twig");
     }
 }

@@ -16,7 +16,7 @@
                 <td>{{ asignatura.nombre }}</td>
             </tr>
             <tr>
-                <th>Anio</th>
+                <th>Año de la carrera</th>
                 <td>{{ asignatura.anio }}</td>
             </tr>
             <tr>
@@ -26,7 +26,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_asignatura_index') }}">back to list</a>
+    <a href="{{ path('app_asignatura_index') }}">Volver a la lista</a>
 
     <a href="{{ path('app_asignatura_edit', {'id': asignatura.id}) }}">edit</a>
 
