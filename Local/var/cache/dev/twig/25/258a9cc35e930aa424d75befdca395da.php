@@ -48,7 +48,7 @@ class __TwigTemplate_20dacf051f6c389509df407ff5973452 extends Template
         // line 2
         yield Twig\Extension\EscaperExtension::escape($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . CoreExtension::getAttribute($this->env, $this->source, (isset($context["correlativa"]) || array_key_exists("correlativa", $context) ? $context["correlativa"] : (function () { throw new RuntimeError('Variable "correlativa" does not exist.', 2, $this->source); })()), "id", [], "any", false, false, false, 2))), "html", null, true);
         yield "\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn\">Eliminar</button>
 </form>
 ";
         
@@ -88,8 +88,8 @@ class __TwigTemplate_20dacf051f6c389509df407ff5973452 extends Template
     {
         return new Source("<form method=\"post\" action=\"{{ path('app_correlativa_delete', {'id': correlativa.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ correlativa.id) }}\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn\">Eliminar</button>
 </form>
-", "correlativa/_delete_form.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\correlativa\\_delete_form.html.twig");
+", "correlativa/_delete_form.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\correlativa\\_delete_form.html.twig");
     }
 }

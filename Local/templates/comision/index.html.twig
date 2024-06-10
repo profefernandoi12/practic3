@@ -3,14 +3,15 @@
 {% block title %}Comisiones{% endblock %}
 
 {% block body %}
-    <h1>Comisiones</h1>
+    <h1>Listado de Comisiones</h1>
 
     <table class="table">
         <thead>
             <tr>
                 
-                <th>Año</th>
+                <th>Año de la carrera</th>
                 <th>Comision</th>
+                <th>Tecnicatura</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 
                 <td>{{ comision.anio }}</td>
                 <td>{{ comision.comision }}</td>
+                <td>{{ comision.Tecnicatura }}</td>
                 <td>
                     <a href="{{ path('app_comision_show', {'id': comision.id}) }}">Mostrar</a>
                     {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}

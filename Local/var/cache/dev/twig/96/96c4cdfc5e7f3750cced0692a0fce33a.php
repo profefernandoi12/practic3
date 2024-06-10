@@ -87,7 +87,7 @@ class __TwigTemplate_bd0e9889e0c29b28983110d90ddd911d extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>Cursadas</h1>
+        yield "    <h1>Cursadas de Alumnos</h1>
 
     <table class=\"table\">
         <thead>
@@ -227,7 +227,7 @@ class __TwigTemplate_bd0e9889e0c29b28983110d90ddd911d extends Template
 {% block title %}Cursadas{% endblock %}
 
 {% block body %}
-    <h1>Cursadas</h1>
+    <h1>Cursadas de Alumnos</h1>
 
     <table class=\"table\">
         <thead>
@@ -274,6 +274,6 @@ class __TwigTemplate_bd0e9889e0c29b28983110d90ddd911d extends Template
     <a href=\"{{ path('app_cursada_new') }}\">Crear cursada</a>
     {% endif %}
 {% endblock %}
-", "cursada/index.html.twig", "F:\\xampp\\htdocs\\Local\\templates\\cursada\\index.html.twig");
+", "cursada/index.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\cursada\\index.html.twig");
     }
 }

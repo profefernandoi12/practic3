@@ -87,17 +87,17 @@ class __TwigTemplate_2cc6e99c02320fc4a287c10ebc9a3f5c extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>Edit Asignatura</h1>
+        yield "    <h1>Editar Asignatura</h1>
 
     ";
         // line 8
-        yield Twig\Extension\CoreExtension::include($this->env, $context, "asignatura/_form.html.twig", ["button_label" => "Update"]);
+        yield Twig\Extension\CoreExtension::include($this->env, $context, "asignatura/_form.html.twig", ["button_label" => "Guardar"]);
         yield "
 
     <a href=\"";
         // line 10
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_asignatura_index");
-        yield "\">back to list</a>
+        yield "\">Volver a la lista</a>
 
     ";
         // line 12
@@ -144,14 +144,14 @@ class __TwigTemplate_2cc6e99c02320fc4a287c10ebc9a3f5c extends Template
 {% block title %}Edit Asignatura{% endblock %}
 
 {% block body %}
-    <h1>Edit Asignatura</h1>
+    <h1>Editar Asignatura</h1>
 
-    {{ include('asignatura/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('asignatura/_form.html.twig', {'button_label': 'Guardar'}) }}
 
-    <a href=\"{{ path('app_asignatura_index') }}\">back to list</a>
+    <a href=\"{{ path('app_asignatura_index') }}\">Volver a la lista</a>
 
     {{ include('asignatura/_delete_form.html.twig') }}
 {% endblock %}
-", "asignatura/edit.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\asignatura\\edit.html.twig");
+", "asignatura/edit.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\asignatura\\edit.html.twig");
     }
 }

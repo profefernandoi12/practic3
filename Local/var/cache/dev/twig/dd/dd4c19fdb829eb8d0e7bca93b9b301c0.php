@@ -887,6 +887,6 @@ class __TwigTemplate_14cc06e9865ea87c7c587db16e16b0f8 extends Template
 \t\t\t</body>
 \t\t</body>
 \t</html>
-", "base.html.twig", "F:\\xampp\\htdocs\\Local\\templates\\base.html.twig");
+", "base.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\base.html.twig");
     }
 }

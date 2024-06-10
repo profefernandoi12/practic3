@@ -11,6 +11,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Range;
+
 
 class CursadaType extends AbstractType
 {
@@ -36,15 +38,34 @@ class CursadaType extends AbstractType
                 'choice_label' => 'nombre',
                 'attr' => ['class' => 'form-control']
             ])
-            ->add('libre')
-            ->add('nota1',NumberType::class,[
+            ->add('libre', null, [
+                'label' => 'Libre',
+                'attr' => ['class' => 'form-control']
+            ])
+            ->add('nota1', NumberType::class, [
                 'label' => 'Primera Nota',
-                'attr' => ['class' => 'form-control']
+                'attr' => ['class' => 'form-control'],
+                'constraints' => [
+                    new Range([
+                        'min' => 1,
+                        'max' => 10,
+                        'minMessage' => 'Rango de notas entre 1 y 10',
+                        'maxMessage' => 'Rango de notas entre 1 y 10'
+                    ])
+                ]
             ])
-            ->add('nota2',NumberType::class,[
-                'label' => 'Segundo Nota',
-                'attr' => ['class' => 'form-control']
-            ])
+            ->add('nota2', NumberType::class, [
+                'label' => 'Segunda Nota',
+                'attr' => ['class' => 'form-control'],
+                'constraints' => [
+                    new Range([
+                        'min' => 1,
+                        'max' => 10,
+                        'minMessage' => 'Rango de notas entre 1 y 10',
+                        'maxMessage' => 'Rango de notas entre 1 y 10'
+                    ])
+                ]
+            ]);
         ;
     }
 

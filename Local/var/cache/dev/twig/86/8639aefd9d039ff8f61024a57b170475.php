@@ -244,6 +244,6 @@ class __TwigTemplate_c8a463b7299b7f96cfec91b0f87bd2e0 extends Template
 
     <a href=\"{{ path('app_tecnicatura_new') }}\">Crear tecnicatura</a>
 {% endblock %}
-", "tecnicatura/index.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\tecnicatura\\index.html.twig");
+", "tecnicatura/index.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\tecnicatura\\index.html.twig");
     }
 }

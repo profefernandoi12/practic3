@@ -3,20 +3,28 @@
 {% block title %}Correlativa{% endblock %}
 
 {% block body %}
-    <h1>Correlativa</h1>
+    <h1>Datos de la Correlativa</h1>
 
     <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ correlativa.id }}</td>
+                <td>{{ correlativa.id }}</td>                
+            </tr>
+            <tr>
+                <th>Para aprobar</th>
+                <td>{{correlativa.asignatura.nombre}}</td>
+            </tr>
+            <tr>
+                <th>Deberá tener aprobado</th>
+                <td>{{correlativa.nombre}}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_correlativa_index') }}">back to list</a>
+    <a href="{{ path('app_correlativa_index') }}">Volver</a>
 
-    <a href="{{ path('app_correlativa_edit', {'id': correlativa.id}) }}">edit</a>
+    <a href="{{ path('app_correlativa_edit', {'id': correlativa.id}) }}"> Editar</a>
 
     {{ include('correlativa/_delete_form.html.twig') }}
 {% endblock %}

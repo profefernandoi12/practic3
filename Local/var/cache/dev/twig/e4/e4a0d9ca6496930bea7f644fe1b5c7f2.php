@@ -87,15 +87,15 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>Correlativa</h1>
+        yield "    <h1>Lista de Correlativas</h1>
 
     <table class=\"table\">
         <thead>
             <tr>
                 <th>Id</th>
-                <td>Nombre Asignatura</td>
-                <td>Nombre Correlativa</td>
-                <th>actions</th>
+                <th>Para aprobar</th>
+                <th>Deberá tener aprobado</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -119,30 +119,31 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
             // line 22
             yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "nombre", [], "any", false, false, false, 22), "html", null, true);
             yield "</td>
+              
                 <td>
                     <a href=\"";
-            // line 24
-            yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "id", [], "any", false, false, false, 24)]), "html", null, true);
+            // line 25
+            yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "id", [], "any", false, false, false, 25)]), "html", null, true);
             yield "\">Mostrar</a>
                     ";
-            // line 25
+            // line 26
             if (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN"))) {
-                // line 26
+                // line 27
                 yield "
                         <a href=\"";
-                // line 27
-                yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "id", [], "any", false, false, false, 27)]), "html", null, true);
+                // line 28
+                yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "id", [], "any", false, false, false, 28)]), "html", null, true);
                 yield "\">Editar</a>
                     ";
             }
-            // line 29
+            // line 30
             yield "                </td>
             </tr>
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 32
+            // line 33
             yield "            <tr>
                 <td colspan=\"2\">no records found</td>
             </tr>
@@ -151,21 +152,21 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['correlativa'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 36
+        // line 37
         yield "        </tbody>
     </table>
 ";
-        // line 38
+        // line 39
         if (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN"))) {
-            // line 39
+            // line 40
             yield "
     <a href=\"";
-            // line 40
+            // line 41
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_new");
-            yield "\">Crear nuevo</a>
+            yield "\">Crear Nueva Correlativa</a>
 ";
         }
-        // line 41
+        // line 42
         yield "    
 ";
         
@@ -198,7 +199,7 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  169 => 41,  164 => 40,  161 => 39,  159 => 38,  155 => 36,  146 => 32,  139 => 29,  134 => 27,  131 => 26,  129 => 25,  125 => 24,  120 => 22,  116 => 21,  112 => 20,  109 => 19,  104 => 18,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
+        return array (  170 => 42,  165 => 41,  162 => 40,  160 => 39,  156 => 37,  147 => 33,  140 => 30,  135 => 28,  132 => 27,  130 => 26,  126 => 25,  120 => 22,  116 => 21,  112 => 20,  109 => 19,  104 => 18,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -208,15 +209,15 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
 {% block title %}Correlativa index{% endblock %}
 
 {% block body %}
-    <h1>Correlativa</h1>
+    <h1>Lista de Correlativas</h1>
 
     <table class=\"table\">
         <thead>
             <tr>
                 <th>Id</th>
-                <td>Nombre Asignatura</td>
-                <td>Nombre Correlativa</td>
-                <th>actions</th>
+                <th>Para aprobar</th>
+                <th>Deberá tener aprobado</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -225,6 +226,7 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
                 <td>{{ correlativa.id }}</td>
                 <td>{{correlativa.asignatura.nombre}}</td>
                 <td>{{correlativa.nombre}}</td>
+              
                 <td>
                     <a href=\"{{ path('app_correlativa_show', {'id': correlativa.id}) }}\">Mostrar</a>
                     {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
@@ -242,9 +244,9 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
     </table>
 {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
 
-    <a href=\"{{ path('app_correlativa_new') }}\">Crear nuevo</a>
+    <a href=\"{{ path('app_correlativa_new') }}\">Crear Nueva Correlativa</a>
 {% endif %}    
 {% endblock %}
-", "correlativa/index.html.twig", "F:\\xampp\\htdocs\\Local\\templates\\correlativa\\index.html.twig");
+", "correlativa/index.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\correlativa\\index.html.twig");
     }
 }
