@@ -10,6 +10,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 
 class AlumnoType extends AbstractType
 {
@@ -30,6 +32,13 @@ class AlumnoType extends AbstractType
             ])
             ->add('persona',EntityType::class,[
                 'class' => Persona::class,
+                'query_builder' => function(EntityRepository $er) : QueryBuilder {
+                    return $er->createQueryBuilder('p')
+                    ->leftJoin('App\Entity\Alumno','a','WITH','p.id = a.persona')
+                    ->leftJoin('App\Entity\Docente','d','WITH','p.id = d.persona')
+                    ->where('a.persona IS NULL')
+                    ->andWhere('d.persona IS NULL');
+                },
                 'choice_label' => function($persona){
                     return 'Nombre : ' . $persona->getNombre() . ' , '. 'Apellido :' . $persona->getApellido() . ' , ' . 'Dni :' . $persona->getDnipasaporte();
                 },
