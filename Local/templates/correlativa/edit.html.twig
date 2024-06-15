@@ -5,9 +5,10 @@
 {% block body %}
     <h1>Editar Correlativa</h1>
 
-    {{ include('correlativa/_form.html.twig', {'button_label': 'Aceptar'}) }}
+     {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-primary">Guardar</button>
+    {{ form_end(form) }}
 
     <a href="{{ path('app_correlativa_index') }}">Volver a la lista</a>
-
-    {{ include('correlativa/_delete_form.html.twig') }}
 {% endblock %}

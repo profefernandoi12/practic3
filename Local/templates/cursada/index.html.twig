@@ -3,20 +3,22 @@
 {% block title %}Cursadas{% endblock %}
 
 {% block body %}
-    <h1>Cursadas de Alumnos</h1>
+    <h1>Cursadas de Estudiantes</h1>
 
     <table class="table">
         <thead>
             <tr>
                 
                 <th>Ciclo_lectivo</th>
-                <th>Alumno</th>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>Tecnicatura</th>
                 <th>Asignatura</th>
                 <th>Comision</th>
                 <th>Libre</th>
                 <th>Nota1</th>
                 <th>Nota2</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -24,7 +26,9 @@
             <tr>
                 
                 <td>{{ cursada.cicloLectivo }}</td>
-                <td>{{ cursada.Alumno }}</td>
+                <td>{{ cursada.Alumno.Persona.Apellido }}</td>
+                <td>{{ cursada.Alumno.Persona.nombre }}</td>
+                <td>{{ cursada.Asignatura.Tecnicatura }}</td>
                 <td>{{ cursada.Asignatura }}</td>
                 <td>{{ cursada.Comision }}</td>
                 <td>{{ cursada.Libre }}</td>

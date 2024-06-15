@@ -17,9 +17,7 @@ class DocenteType extends AbstractType
             ->add('fecha_ingreso')
             ->add('persona',EntityType::class,[
                 'class' => Persona::class,
-                'choice_label' => function($persona){
-                    return 'Nombre : ' . $persona->getNombre() . ' , '. 'Apellido :' . $persona->getApellido() . ' , ' . 'Dni :' . $persona->getDnipasaporte();
-                },
+                'choice_label' => 'nombre',
                 'attr' => ['class' => 'form-control']
             ])
         ;

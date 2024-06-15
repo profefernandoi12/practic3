@@ -93,6 +93,7 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Tecnicatura</th>
                 <th>Para aprobar</th>
                 <th>Deberá tener aprobado</th>
                 <th>Acciones</th>
@@ -100,50 +101,91 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
         </thead>
         <tbody>
         ";
-        // line 18
+        // line 19
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["correlativas"]) || array_key_exists("correlativas", $context) ? $context["correlativas"] : (function () { throw new RuntimeError('Variable "correlativas" does not exist.', 18, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["correlativas"]) || array_key_exists("correlativas", $context) ? $context["correlativas"] : (function () { throw new RuntimeError('Variable "correlativas" does not exist.', 19, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["correlativa"]) {
-            // line 19
+            // line 20
             yield "            <tr>
                 <td>";
-            // line 20
-            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "id", [], "any", false, false, false, 20), "html", null, true);
-            yield "</td>
-                <td>";
             // line 21
-            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "asignatura", [], "any", false, false, false, 21), "nombre", [], "any", false, false, false, 21), "html", null, true);
+            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "id", [], "any", false, false, false, 21), "html", null, true);
             yield "</td>
                 <td>";
             // line 22
-            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "nombre", [], "any", false, false, false, 22), "html", null, true);
+            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "asignatura", [], "any", false, false, false, 22), "Tecnicatura", [], "any", false, false, false, 22), "html", null, true);
             yield "</td>
+                <td>";
+            // line 23
+            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "asignatura", [], "any", false, false, false, 23), "nombre", [], "any", false, false, false, 23), "html", null, true);
+            yield "</td>
+                <td>
+                    ";
+            // line 25
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "asignatura", [], "any", false, false, false, 25));
+            $context['loop'] = [
+              'parent' => $context['_parent'],
+              'index0' => 0,
+              'index'  => 1,
+              'first'  => true,
+            ];
+            if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+                $length = count($context['_seq']);
+                $context['loop']['revindex0'] = $length - 1;
+                $context['loop']['revindex'] = $length;
+                $context['loop']['length'] = $length;
+                $context['loop']['last'] = 1 === $length;
+            }
+            foreach ($context['_seq'] as $context["_key"] => $context["asignatura"]) {
+                // line 26
+                yield "                        ";
+                yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["asignatura"], "nombre", [], "any", false, false, false, 26), "html", null, true);
+                if ( !CoreExtension::getAttribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 26)) {
+                    yield ", ";
+                }
+                // line 27
+                yield "                    ";
+                ++$context['loop']['index0'];
+                ++$context['loop']['index'];
+                $context['loop']['first'] = false;
+                if (isset($context['loop']['length'])) {
+                    --$context['loop']['revindex0'];
+                    --$context['loop']['revindex'];
+                    $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+                }
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['asignatura'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 28
+            yield "                </td>
               
                 <td>
                     <a href=\"";
-            // line 25
-            yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "id", [], "any", false, false, false, 25)]), "html", null, true);
+            // line 31
+            yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "id", [], "any", false, false, false, 31)]), "html", null, true);
             yield "\">Mostrar</a>
                     ";
-            // line 26
+            // line 32
             if (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN"))) {
-                // line 27
+                // line 33
                 yield "
                         <a href=\"";
-                // line 28
-                yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "id", [], "any", false, false, false, 28)]), "html", null, true);
+                // line 34
+                yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["correlativa"], "id", [], "any", false, false, false, 34)]), "html", null, true);
                 yield "\">Editar</a>
                     ";
             }
-            // line 30
+            // line 36
             yield "                </td>
             </tr>
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 33
+            // line 39
             yield "            <tr>
                 <td colspan=\"2\">no records found</td>
             </tr>
@@ -152,21 +194,22 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['correlativa'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 43
         yield "        </tbody>
+
     </table>
 ";
-        // line 39
+        // line 46
         if (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN"))) {
-            // line 40
+            // line 47
             yield "
     <a href=\"";
-            // line 41
+            // line 48
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_new");
             yield "\">Crear Nueva Correlativa</a>
 ";
         }
-        // line 42
+        // line 49
         yield "    
 ";
         
@@ -199,7 +242,7 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  170 => 42,  165 => 41,  162 => 40,  160 => 39,  156 => 37,  147 => 33,  140 => 30,  135 => 28,  132 => 27,  130 => 26,  126 => 25,  120 => 22,  116 => 21,  112 => 20,  109 => 19,  104 => 18,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
+        return array (  213 => 49,  208 => 48,  205 => 47,  203 => 46,  198 => 43,  189 => 39,  182 => 36,  177 => 34,  174 => 33,  172 => 32,  168 => 31,  163 => 28,  149 => 27,  143 => 26,  126 => 25,  121 => 23,  117 => 22,  113 => 21,  110 => 20,  105 => 19,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -215,6 +258,7 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Tecnicatura</th>
                 <th>Para aprobar</th>
                 <th>Deberá tener aprobado</th>
                 <th>Acciones</th>
@@ -224,8 +268,13 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
         {% for correlativa in correlativas %}
             <tr>
                 <td>{{ correlativa.id }}</td>
-                <td>{{correlativa.asignatura.nombre}}</td>
-                <td>{{correlativa.nombre}}</td>
+                <td>{{correlativa.asignatura.Tecnicatura}}</td>
+                <td>{{ correlativa.asignatura.nombre }}</td>
+                <td>
+                    {% for asignatura in correlativa.asignatura %}
+                        {{ asignatura.nombre }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
               
                 <td>
                     <a href=\"{{ path('app_correlativa_show', {'id': correlativa.id}) }}\">Mostrar</a>
@@ -241,6 +290,7 @@ class __TwigTemplate_c5b5b72cb57f71b36a566efe5e417960 extends Template
             </tr>
         {% endfor %}
         </tbody>
+
     </table>
 {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
 

@@ -275,6 +275,6 @@ class __TwigTemplate_f1d424779699abee04f343fd7572faf4 extends Template
 
     <a href=\"{{ path('app_docente_new') }}\">Crear nuevo</a>
 {% endblock %}
-", "docente/index.html.twig", "F:\\xampp\\htdocs\\Local\\templates\\docente\\index.html.twig");
+", "docente/index.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\docente\\index.html.twig");
     }
 }

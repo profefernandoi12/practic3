@@ -9,28 +9,17 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('email',EmailType::class,[
-            'label' => 'Email',
-            'attr' => ['class' => 'form-control']
-        ])
+        ->add('email')
         // ->add('roles')
         // ->add('password')
-         ->add('nombre',TextType::class,[
-            'label' => 'Nombre',
-            'attr' => ['class' => 'form-control']
-        ])
-         ->add('apellido',TextType::class,[
-            'label' => 'Apellido',
-            'attr' => ['class' => 'form-control']
-        ])
+         ->add('nombre')
+         ->add('apellido')
 
          //rempllazo roles y pasword por lo siguiente:
 
@@ -44,13 +33,12 @@ class UserType extends AbstractType
              ],
              'expanded' => false,
              'multiple' => true,
-             'label'=>'* Roles',
-             'attr' => ['class' => 'form-control']
+             'label'=>'* Roles'
          ])
          ->add('password', RepeatedType::class, array(
              'type' => PasswordType::class,
-             'first_options'  => array('label' => '* Password','attr' => ['class' => 'form-control']),
-             'second_options' => array('label' => '* Repetir Password','attr' => ['class' => 'form-control']),))
+             'first_options'  => array('label' => '* Password'),
+             'second_options' => array('label' => '* Repetir Password'),))
 
         ;
     }

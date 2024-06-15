@@ -87,84 +87,94 @@ class __TwigTemplate_bd0e9889e0c29b28983110d90ddd911d extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>Cursadas de Alumnos</h1>
+        yield "    <h1>Cursadas de Estudiantes</h1>
 
     <table class=\"table\">
         <thead>
             <tr>
                 
                 <th>Ciclo_lectivo</th>
-                <th>Alumno</th>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>Tecnicatura</th>
                 <th>Asignatura</th>
                 <th>Comision</th>
                 <th>Libre</th>
                 <th>Nota1</th>
                 <th>Nota2</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
         ";
-        // line 23
+        // line 25
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["cursadas"]) || array_key_exists("cursadas", $context) ? $context["cursadas"] : (function () { throw new RuntimeError('Variable "cursadas" does not exist.', 23, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["cursadas"]) || array_key_exists("cursadas", $context) ? $context["cursadas"] : (function () { throw new RuntimeError('Variable "cursadas" does not exist.', 25, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["cursada"]) {
-            // line 24
+            // line 26
             yield "            <tr>
                 
                 <td>";
-            // line 26
-            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "cicloLectivo", [], "any", false, false, false, 26), "html", null, true);
-            yield "</td>
-                <td>";
-            // line 27
-            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Alumno", [], "any", false, false, false, 27), "html", null, true);
-            yield "</td>
-                <td>";
             // line 28
-            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Asignatura", [], "any", false, false, false, 28), "html", null, true);
+            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "cicloLectivo", [], "any", false, false, false, 28), "html", null, true);
             yield "</td>
                 <td>";
             // line 29
-            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Comision", [], "any", false, false, false, 29), "html", null, true);
+            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Alumno", [], "any", false, false, false, 29), "Persona", [], "any", false, false, false, 29), "Apellido", [], "any", false, false, false, 29), "html", null, true);
             yield "</td>
                 <td>";
             // line 30
-            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Libre", [], "any", false, false, false, 30), "html", null, true);
+            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Alumno", [], "any", false, false, false, 30), "Persona", [], "any", false, false, false, 30), "nombre", [], "any", false, false, false, 30), "html", null, true);
             yield "</td>
                 <td>";
             // line 31
-            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Nota1", [], "any", false, false, false, 31), "html", null, true);
+            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Asignatura", [], "any", false, false, false, 31), "Tecnicatura", [], "any", false, false, false, 31), "html", null, true);
             yield "</td>
                 <td>";
             // line 32
-            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Nota2", [], "any", false, false, false, 32), "html", null, true);
+            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Asignatura", [], "any", false, false, false, 32), "html", null, true);
+            yield "</td>
+                <td>";
+            // line 33
+            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Comision", [], "any", false, false, false, 33), "html", null, true);
+            yield "</td>
+                <td>";
+            // line 34
+            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Libre", [], "any", false, false, false, 34), "html", null, true);
+            yield "</td>
+                <td>";
+            // line 35
+            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Nota1", [], "any", false, false, false, 35), "html", null, true);
+            yield "</td>
+                <td>";
+            // line 36
+            yield Twig\Extension\EscaperExtension::escape($this->env, CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "Nota2", [], "any", false, false, false, 36), "html", null, true);
             yield "</td>
                 <td>
                     <a href=\"";
-            // line 34
-            yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cursada_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "id", [], "any", false, false, false, 34)]), "html", null, true);
+            // line 38
+            yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cursada_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "id", [], "any", false, false, false, 38)]), "html", null, true);
             yield "\">Mostrar</a>
                     ";
-            // line 35
+            // line 39
             if (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN"))) {
-                // line 36
+                // line 40
                 yield "
                     <a href=\"";
-                // line 37
-                yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cursada_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "id", [], "any", false, false, false, 37)]), "html", null, true);
+                // line 41
+                yield Twig\Extension\EscaperExtension::escape($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cursada_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["cursada"], "id", [], "any", false, false, false, 41)]), "html", null, true);
                 yield "\">Editar</a>
                     ";
             }
-            // line 39
+            // line 43
             yield "                </td>
             </tr>
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 42
+            // line 46
             yield "            <tr>
                 <td colspan=\"3\">no se encontraron registros</td>
             </tr>
@@ -173,16 +183,16 @@ class __TwigTemplate_bd0e9889e0c29b28983110d90ddd911d extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['cursada'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 46
+        // line 50
         yield "        </tbody>
     </table>
 ";
-        // line 48
+        // line 52
         if (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN"))) {
-            // line 49
+            // line 53
             yield "
     <a href=\"";
-            // line 50
+            // line 54
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cursada_new");
             yield "\">Crear cursada</a>
     ";
@@ -217,7 +227,7 @@ class __TwigTemplate_bd0e9889e0c29b28983110d90ddd911d extends Template
      */
     public function getDebugInfo()
     {
-        return array (  186 => 50,  183 => 49,  181 => 48,  177 => 46,  168 => 42,  161 => 39,  156 => 37,  153 => 36,  151 => 35,  147 => 34,  142 => 32,  138 => 31,  134 => 30,  130 => 29,  126 => 28,  122 => 27,  118 => 26,  114 => 24,  109 => 23,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
+        return array (  196 => 54,  193 => 53,  191 => 52,  187 => 50,  178 => 46,  171 => 43,  166 => 41,  163 => 40,  161 => 39,  157 => 38,  152 => 36,  148 => 35,  144 => 34,  140 => 33,  136 => 32,  132 => 31,  128 => 30,  124 => 29,  120 => 28,  116 => 26,  111 => 25,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -227,20 +237,22 @@ class __TwigTemplate_bd0e9889e0c29b28983110d90ddd911d extends Template
 {% block title %}Cursadas{% endblock %}
 
 {% block body %}
-    <h1>Cursadas de Alumnos</h1>
+    <h1>Cursadas de Estudiantes</h1>
 
     <table class=\"table\">
         <thead>
             <tr>
                 
                 <th>Ciclo_lectivo</th>
-                <th>Alumno</th>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>Tecnicatura</th>
                 <th>Asignatura</th>
                 <th>Comision</th>
                 <th>Libre</th>
                 <th>Nota1</th>
                 <th>Nota2</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -248,7 +260,9 @@ class __TwigTemplate_bd0e9889e0c29b28983110d90ddd911d extends Template
             <tr>
                 
                 <td>{{ cursada.cicloLectivo }}</td>
-                <td>{{ cursada.Alumno }}</td>
+                <td>{{ cursada.Alumno.Persona.Apellido }}</td>
+                <td>{{ cursada.Alumno.Persona.nombre }}</td>
+                <td>{{ cursada.Asignatura.Tecnicatura }}</td>
                 <td>{{ cursada.Asignatura }}</td>
                 <td>{{ cursada.Comision }}</td>
                 <td>{{ cursada.Libre }}</td>

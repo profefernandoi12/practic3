@@ -239,6 +239,6 @@ class __TwigTemplate_c9759537acee3028edac6ca37df84005 extends Template
 
     <a href=\"{{ path('app_user_new') }}\">Nuevo Usuario</a>
 {% endblock %}
-", "user/index.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\user\\index.html.twig");
+", "user/index.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\user\\index.html.twig");
     }
 }

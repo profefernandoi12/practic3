@@ -149,6 +149,6 @@ class __TwigTemplate_0258bcce295c3195c94ced6f942856a5 extends Template
     <a href=\"{{ path('app_alumno_index') }}\">Volver</a>
 </div>
 {% endblock %}
-", "alumno/new.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\alumno\\new.html.twig");
+", "alumno/new.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\alumno\\new.html.twig");
     }
 }
