@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Página de Busqueda - Región de Terciarios{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+{% endblock %}
+
+{% block content %}
+
+          {% if institutos %}
+          {% for instituto in institutos %}
+          {{ include('instituto/muestra.html.twig', {'instituto': instituto}) }}
+          {% endfor %}
+          {% endif %}
+
+{% endblock %}

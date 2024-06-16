@@ -21,6 +21,23 @@ class DistritoRepository extends ServiceEntityRepository
         parent::__construct($registry, Distrito::class);
     }
 
+    public function save(Distrito $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(Distrito $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
 //    /**
 //     * @return Distrito[] Returns an array of Distrito objects
 //     */

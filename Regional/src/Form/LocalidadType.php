@@ -16,6 +16,7 @@ class LocalidadType extends AbstractType
             ->add('codigo_postal')
             ->add('provincia')
             ->add('region')
+            ->add('distrito')
         ;
     }
 

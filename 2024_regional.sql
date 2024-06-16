@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-04-2024 a las 16:23:42
+-- Tiempo de generación: 16-06-2024 a las 05:24:22
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `region2023`
+-- Base de datos: `2024_regional`
 --
 
 -- --------------------------------------------------------
@@ -29,33 +29,31 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alumno` (
   `id` int(11) NOT NULL,
+  `persona_id` int(11) NOT NULL,
   `titulo_sec` varchar(100) DEFAULT NULL,
   `escuela_sec` varchar(100) DEFAULT NULL,
-  `anio_egreso` int(11) DEFAULT NULL,
-  `persona_id` int(11) NOT NULL
+  `anio_egreso` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `distrito`
+--
+
+CREATE TABLE `distrito` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `alumno`
+-- Volcado de datos para la tabla `distrito`
 --
 
-INSERT INTO `alumno` (`id`, `titulo_sec`, `escuela_sec`, `anio_egreso`, `persona_id`) VALUES
-(1, '1', '1', 1, 1),
-(2, '2', '2', 2, 2),
-(3, '3', '3', 3, 3),
-(4, '4', '4', 4, 4),
-(5, '5', '5', 5, 5),
-(6, '5', '5', 5, 6),
-(7, '6', '6', 6, 7),
-(8, '7', '7', 7, 8),
-(9, '8', '8', 8, 9),
-(10, '1', '1', 1, 10),
-(11, 'bachiller', 'normal2', 2000, 11),
-(12, '1', '1', 2000, 12),
-(13, 'bachiller', 'normal2', 2010, 13),
-(14, 'bachiller', 'normal76', 1995, 14),
-(15, '3', '3', 3, 15),
-(16, 'Tecnico', 'Albert thomas', 1990, 16);
+INSERT INTO `distrito` (`id`, `nombre`) VALUES
+(1, 'La Plata'),
+(3, 'CABA'),
+(4, 'Berisso');
 
 -- --------------------------------------------------------
 
@@ -65,6 +63,7 @@ INSERT INTO `alumno` (`id`, `titulo_sec`, `escuela_sec`, `anio_egreso`, `persona
 
 CREATE TABLE `instituto` (
   `id` int(11) NOT NULL,
+  `localidad_id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `numero` varchar(50) NOT NULL,
   `url_instituto` varchar(100) DEFAULT NULL,
@@ -72,8 +71,8 @@ CREATE TABLE `instituto` (
   `email` varchar(100) NOT NULL,
   `calle` varchar(100) NOT NULL,
   `altura` varchar(10) NOT NULL,
+  `clave` varchar(10) NOT NULL,
   `numero_cue` varchar(15) NOT NULL,
-  `localidad_id` int(11) NOT NULL,
   `instituto` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -81,10 +80,9 @@ CREATE TABLE `instituto` (
 -- Volcado de datos para la tabla `instituto`
 --
 
-INSERT INTO `instituto` (`id`, `nombre`, `numero`, `url_instituto`, `tipo`, `email`, `calle`, `altura`, `numero_cue`, `localidad_id`, `instituto`) VALUES
-(1, 'Instituto Superior de Formacion tecnica', '12', 'www.i12.com.ar', 'Central', 'i12@gmail.com', '7', '76', '23xxxxxx', 1, NULL),
-(2, 'Instituto de Formacion Tecnica', '202', 'www.i202.com.ar', 'Central', 'i202@gmail.com', 'montevideo', '11', '45xxxxx', 2, NULL),
-(3, 'Instituto de Formacion Tecnica', '213', 'http://www.institutosuperior213.edu.ar/', 'Central', 'i213@gmeil.com', '22', '21', '3123xxxx', 1, NULL);
+INSERT INTO `instituto` (`id`, `localidad_id`, `nombre`, `numero`, `url_instituto`, `tipo`, `email`, `calle`, `altura`, `clave`, `numero_cue`, `instituto`) VALUES
+(1, 1, 'ISFT Crucero ARA Gral. Belgrano', '12', 'www.i12.gov.ar', 'et', 'gfghjj@retyu.com', '7', '2148', '1212121212', '345678', 'ewrtyu'),
+(2, 1, 'ISFT', '202', 'www.i202.gov.ar', 'ewr', 'wertyu@retyu.com', '46', '312', '3456', '98765', 'ewrtyu');
 
 -- --------------------------------------------------------
 
@@ -94,21 +92,19 @@ INSERT INTO `instituto` (`id`, `nombre`, `numero`, `url_instituto`, `tipo`, `ema
 
 CREATE TABLE `localidad` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `codigo_postal` varchar(10) DEFAULT NULL,
   `provincia_id` int(11) NOT NULL,
-  `region_id` int(11) NOT NULL
+  `region_id` int(11) NOT NULL,
+  `distrito_id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `codigo_postal` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `localidad`
 --
 
-INSERT INTO `localidad` (`id`, `nombre`, `codigo_postal`, `provincia_id`, `region_id`) VALUES
-(1, 'La Plata', '1900', 1, 1),
-(2, 'Berisso', '1904', 1, 1),
-(3, 'Ensenada', '1925', 1, 1),
-(4, 'Otro', '---', 6, 12);
+INSERT INTO `localidad` (`id`, `provincia_id`, `region_id`, `distrito_id`, `nombre`, `codigo_postal`) VALUES
+(1, 1, 1, 1, 'La Plata', '1900');
 
 -- --------------------------------------------------------
 
@@ -142,8 +138,9 @@ CREATE TABLE `modalidad` (
 --
 
 INSERT INTO `modalidad` (`id`, `descripcion`) VALUES
-(1, 'presencial'),
-(2, 'on-line');
+(1, 'Presencial'),
+(2, 'Virtual'),
+(3, 'SemiPresencial');
 
 -- --------------------------------------------------------
 
@@ -153,27 +150,12 @@ INSERT INTO `modalidad` (`id`, `descripcion`) VALUES
 
 CREATE TABLE `oferta_educativa` (
   `id` int(11) NOT NULL,
-  `ciclo_lectivo` int(11) NOT NULL,
-  `cupo` int(11) DEFAULT NULL,
   `tecnicatura_id` int(11) NOT NULL,
   `turno_id` int(11) NOT NULL,
-  `instituto_id` int(11) NOT NULL
+  `instituto_id` int(11) NOT NULL,
+  `ciclo_lectivo` int(11) NOT NULL,
+  `cupo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `oferta_educativa`
---
-
-INSERT INTO `oferta_educativa` (`id`, `ciclo_lectivo`, `cupo`, `tecnicatura_id`, `turno_id`, `instituto_id`) VALUES
-(1, 2024, NULL, 1, 1, 1),
-(2, 2024, NULL, 2, 3, 1),
-(3, 2024, NULL, 4, 1, 1),
-(4, 2024, NULL, 3, 1, 2),
-(5, 2024, NULL, 1, 1, 2),
-(6, 2024, NULL, 4, 1, 3),
-(7, 2024, NULL, 1, 2, 2),
-(8, 2024, NULL, 2, 4, 2),
-(9, 2024, NULL, 4, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -191,15 +173,7 @@ CREATE TABLE `pais` (
 --
 
 INSERT INTO `pais` (`id`, `descripcion`) VALUES
-(1, 'Argentina'),
-(2, 'Uruguay'),
-(4, 'Brasil'),
-(5, 'Chile'),
-(6, 'Peru'),
-(7, 'Paraguay'),
-(8, 'Bolivia'),
-(9, 'Venezuela'),
-(10, 'Otro');
+(1, 'Argentina');
 
 -- --------------------------------------------------------
 
@@ -209,6 +183,8 @@ INSERT INTO `pais` (`id`, `descripcion`) VALUES
 
 CREATE TABLE `persona` (
   `id` int(11) NOT NULL,
+  `pais_id` int(11) NOT NULL,
+  `localidad_id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
@@ -221,32 +197,8 @@ CREATE TABLE `persona` (
   `numero` varchar(10) DEFAULT NULL,
   `piso` int(11) DEFAULT NULL,
   `departamento` varchar(2) DEFAULT NULL,
-  `pasillo` varchar(50) DEFAULT NULL,
-  `pais_id` int(11) NOT NULL,
-  `localidad_id` int(11) NOT NULL
+  `pasillo` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `persona`
---
-
-INSERT INTO `persona` (`id`, `nombre`, `apellido`, `fecha_nacimiento`, `dni_pasaporte`, `genero`, `email`, `telefono`, `partido`, `calle`, `numero`, `piso`, `departamento`, `pasillo`, `pais_id`, `localidad_id`) VALUES
-(1, '1', '1', '2018-01-01', '1', '1', '1', '1', '1', '1', '1', 1, '1', '1', 1, 1),
-(2, '2', '2', '2018-01-01', '2', '2', '2', '2', '2', '2', '2', 2, '2', '2', 1, 1),
-(3, '3', '3', '2018-01-01', '3', '3', '3', '3', '3', '3', '3', 3, '3', '3', 1, 1),
-(4, '4', '4', '2018-01-01', '4', '4', '4', '4', '4', '4', '4', 4, '4', '4', 1, 1),
-(5, '5', '5', '2018-01-01', '5', '5', '5', '5', '5', '5', '5', 5, '5', '5', 1, 1),
-(6, '5', '5', '2018-01-01', '5', '5', '5', '5', '5', '5', '5', 5, '5', '5', 1, 1),
-(7, '6', '6', '2018-01-01', '6', '6', '6', '6', '6', '6', '6', 6, '6', '6', 1, 1),
-(8, '7', '7', '2018-01-01', '7', '7', '7', '7', '7', '7', '7', 7, '7', '7', 1, 1),
-(9, '8', '8', '2018-01-01', '8', '8', '8', '8', '8', '8', '8', 8, '8', '8', 1, 1),
-(10, '1', '1', '1903-01-01', '1', '1', '1', '1', '1', '1', '1', 1, '1', '1', 1, 1),
-(11, 'gustavo', 'rodriguez', '1903-01-01', '270000', 'm', 'm@hotmail.com', '123412', 'lp', '1', '1', 1, '1', '1', 1, 1),
-(12, 'gus', 'g', '1903-01-01', '1', '1', '1', '1', '1', '1', '1', 1, '1', '1', 1, 1),
-(13, 'rodo', 'pepe', '1903-01-01', '1234', 'm', 'm@gmail.com', '12534', 'lp', '1', '1', 1, '1', '1', 1, 1),
-(14, 'Ignacio', 'Company', '1903-01-01', '3333', 'otro', 'other@gmail.com', '3322', 'lp', '1', '22', 1, '1', '1', 1, 1),
-(15, 'pepito', 'cybrian', '1903-01-01', '222', 'otro', 'ot@teatro.com', '132', '33', '3', '3', 3, '3', '3', 1, 1),
-(16, 'Jhon', 'Doe', '1970-03-14', '333992', 'M', 'JhonD@gmail.com', '221-89898', 'La Plata', '1', '1', 1, '1', '1', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -256,17 +208,10 @@ INSERT INTO `persona` (`id`, `nombre`, `apellido`, `fecha_nacimiento`, `dni_pasa
 
 CREATE TABLE `preinscripcion` (
   `id` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `alumno_id` int(11) NOT NULL,
-  `oferta_educativa_id` int(11) NOT NULL
+  `alumno_id` int(11) DEFAULT NULL,
+  `oferta_educativa_id` int(11) NOT NULL,
+  `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `preinscripcion`
---
-
-INSERT INTO `preinscripcion` (`id`, `fecha`, `alumno_id`, `oferta_educativa_id`) VALUES
-(16, '2023-03-12', 16, 1);
 
 -- --------------------------------------------------------
 
@@ -285,12 +230,7 @@ CREATE TABLE `provincia` (
 --
 
 INSERT INTO `provincia` (`id`, `pais_id`, `descripcion`) VALUES
-(1, 1, 'Buenos Aires'),
-(2, 1, 'Cordoba'),
-(3, 1, 'Santa Fe'),
-(4, 1, 'Tucuman'),
-(5, 1, 'Entre Rios'),
-(6, 10, 'Otro');
+(1, 1, 'Buenos Aires');
 
 -- --------------------------------------------------------
 
@@ -308,18 +248,7 @@ CREATE TABLE `region` (
 --
 
 INSERT INTO `region` (`id`, `numero`) VALUES
-(1, 'I'),
-(2, 'II'),
-(3, 'III'),
-(4, 'IV'),
-(5, 'V'),
-(6, 'VI'),
-(7, 'VII'),
-(8, 'VIII'),
-(9, 'IX'),
-(10, 'X'),
-(11, 'XI'),
-(12, 'Otro');
+(1, 'I');
 
 -- --------------------------------------------------------
 
@@ -329,22 +258,20 @@ INSERT INTO `region` (`id`, `numero`) VALUES
 
 CREATE TABLE `tecnicatura` (
   `id` int(11) NOT NULL,
+  `modalidad_id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `duracion` int(11) NOT NULL,
   `cantidad_asignaturas` int(11) DEFAULT NULL,
-  `numero_resolucion` varchar(30) NOT NULL,
-  `modalidad_id` int(11) NOT NULL
+  `numero_resolucion` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `tecnicatura`
 --
 
-INSERT INTO `tecnicatura` (`id`, `nombre`, `duracion`, `cantidad_asignaturas`, `numero_resolucion`, `modalidad_id`) VALUES
-(1, 'Tecnicatura Superior en Analisis de Sistemas', 3, 23, '06790-19', 1),
-(2, 'Tecnico Superior en Desarrollo de Software', 3, 23, '06790-19', 1),
-(3, 'Tecnico Superior en Biotecnologia', 3, 23, '58/11', 1),
-(4, 'Técnico Superior en Ciencia de Datos e Inteligencia Artificial', 3, 23, '2730/22', 1);
+INSERT INTO `tecnicatura` (`id`, `modalidad_id`, `nombre`, `duracion`, `cantidad_asignaturas`, `numero_resolucion`) VALUES
+(1, 1, 'Analisis de Sistemas', 3, 21, '43567/34'),
+(2, 1, 'Seguridad e Higiene', 3, 32, '43567/34');
 
 -- --------------------------------------------------------
 
@@ -354,20 +281,9 @@ INSERT INTO `tecnicatura` (`id`, `nombre`, `duracion`, `cantidad_asignaturas`, `
 
 CREATE TABLE `telefono` (
   `id` int(11) NOT NULL,
-  `numero` varchar(25) NOT NULL,
-  `instituto_id` int(11) NOT NULL
+  `instituto_id` int(11) NOT NULL,
+  `numero` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `telefono`
---
-
-INSERT INTO `telefono` (`id`, `numero`, `instituto_id`) VALUES
-(1, '221-xxxxxxx', 1),
-(2, '221-yyyyyyyy', 1),
-(3, '221-ffffffff', 2),
-(4, '221-ggggggg', 2),
-(5, '221-wwwwww', 3);
 
 -- --------------------------------------------------------
 
@@ -379,16 +295,6 @@ CREATE TABLE `turno` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `turno`
---
-
-INSERT INTO `turno` (`id`, `descripcion`) VALUES
-(1, 'mañana'),
-(2, 'tarde'),
-(3, 'noche'),
-(4, 'Vespertino');
 
 -- --------------------------------------------------------
 
@@ -424,6 +330,12 @@ ALTER TABLE `alumno`
   ADD UNIQUE KEY `UNIQ_1435D52DF5F88DB9` (`persona_id`);
 
 --
+-- Indices de la tabla `distrito`
+--
+ALTER TABLE `distrito`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `instituto`
 --
 ALTER TABLE `instituto`
@@ -436,7 +348,8 @@ ALTER TABLE `instituto`
 ALTER TABLE `localidad`
   ADD PRIMARY KEY (`id`),
   ADD KEY `IDX_4F68E0104E7121AF` (`provincia_id`),
-  ADD KEY `IDX_4F68E01098260155` (`region_id`);
+  ADD KEY `IDX_4F68E01098260155` (`region_id`),
+  ADD KEY `IDX_4F68E010E557397E` (`distrito_id`);
 
 --
 -- Indices de la tabla `messenger_messages`
@@ -532,19 +445,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `distrito`
+--
+ALTER TABLE `distrito`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `instituto`
 --
 ALTER TABLE `instituto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `localidad`
 --
 ALTER TABLE `localidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `messenger_messages`
@@ -556,61 +475,61 @@ ALTER TABLE `messenger_messages`
 -- AUTO_INCREMENT de la tabla `modalidad`
 --
 ALTER TABLE `modalidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `oferta_educativa`
 --
 ALTER TABLE `oferta_educativa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `preinscripcion`
 --
 ALTER TABLE `preinscripcion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `provincia`
 --
 ALTER TABLE `provincia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `region`
 --
 ALTER TABLE `region`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tecnicatura`
 --
 ALTER TABLE `tecnicatura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `turno`
 --
 ALTER TABLE `turno`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
@@ -639,7 +558,8 @@ ALTER TABLE `instituto`
 --
 ALTER TABLE `localidad`
   ADD CONSTRAINT `FK_4F68E0104E7121AF` FOREIGN KEY (`provincia_id`) REFERENCES `provincia` (`id`),
-  ADD CONSTRAINT `FK_4F68E01098260155` FOREIGN KEY (`region_id`) REFERENCES `region` (`id`);
+  ADD CONSTRAINT `FK_4F68E01098260155` FOREIGN KEY (`region_id`) REFERENCES `region` (`id`),
+  ADD CONSTRAINT `FK_4F68E010E557397E` FOREIGN KEY (`distrito_id`) REFERENCES `distrito` (`id`);
 
 --
 -- Filtros para la tabla `oferta_educativa`

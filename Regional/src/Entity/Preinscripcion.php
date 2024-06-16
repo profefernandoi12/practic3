@@ -18,11 +18,11 @@ class Preinscripcion
     private ?\DateTimeInterface $fecha = null;
 
     #[ORM\ManyToOne(inversedBy: 'preinscripcion', cascade: ['persist'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Alumno $alumno = null;
 
-    #[ORM\ManyToOne(inversedBy: 'preinscripcion')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(inversedBy: 'preinscripcion', cascade: ['persist'])] // se agrego cascade: ['persist'] xq no estaba
+    #[ORM\JoinColumn(nullable: true)] // se cambio false x true
     private ?OfertaEducativa $ofertaEducativa = null;
 
     public function getId(): ?int

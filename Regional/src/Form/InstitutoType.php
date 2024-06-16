@@ -20,6 +20,7 @@ class InstitutoType extends AbstractType
             ->add('email')
             ->add('calle')
             ->add('altura')
+            ->add('clave')
             ->add('numero_cue')
             ->add('instituto')
             ->add('localidad');

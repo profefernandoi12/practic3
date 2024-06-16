@@ -1,4 +1,4 @@
-{% extends 'inicio.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Página de Busqueda - Región de Terciarios{% endblock %}
 
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 {% endblock %}
 
-  {% block content %}
+  {% block body %}
     <h2>Búsqueda</h2>
 
     {{ form_start(form) }}

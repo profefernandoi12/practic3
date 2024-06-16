@@ -14,8 +14,8 @@ class OfertaEducativa
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column]
+                                    //error: Column 'ciclo_lectivo' cannot be null
+    #[ORM\Column(nullable: true)] // se agrego el (nullable: true) que faltaba y el error persiste
     private ?int $ciclo_lectivo = null;
 
     #[ORM\Column(nullable: true)]
@@ -143,7 +143,10 @@ class OfertaEducativa
             $this->tecnicatura->getNombre(),
             $this->turno->getDescripcion(),
             $this->instituto->getNumero(),
-            $this->ciclo_lectivo ?? 0
+            $this->ciclo_lectivo ?? 0 
+                       
+            //$this->ciclo_lectivo ? $this->ciclo_lectivo->getId() : 'N/A' 
+            // se probo cambiar la ultima la linea x la comentada pero el error persiste, ciclo lectivo no puede ser nulo
         );
     }
 

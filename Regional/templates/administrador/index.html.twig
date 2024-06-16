@@ -1,9 +1,40 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 
 {% block title %}ADMINISTRADOR{% endblock %}
 
 {% block body %}
 
+
+<div class="example-wrapper">
+    <div class="header">
+        <div class="logo">
+            <a href="#"><img src="{{ asset('img/logo1.jpeg') }}" alt="Logo" class="logo-image"></a>
+        </div>
+        <div class="headre-log">
+            <h1> ADMINISTRADOR ✅</h1>
+            <a href="{{ path('app_logout') }}" class="logout-button">Cerrar Sesión</a>
+        </div>
+    </div>
+    <div class="sidebar">
+         <div class="button-container">
+             <button class="button1 open-editor-button" data-url="{{ paisUrl }}">Pais</button>
+             <button class="button1 open-editor-button" data-url="{{ provinciaUrl }}">Provincia</button>
+             <button class="button1 open-editor-button" data-url="{{ localidadUrl }}">Localidad</button>
+             <button class="button1 open-editor-button" data-url="{{ regionUrl }}">Region</button>
+             <button class="button1 open-editor-button" data-url="{{ institutoUrl }}">Instituto</button>
+             <button class="button1 open-editor-button" data-url="{{ telefonoUrl }}">Telefono</button>
+             <button class="button1 open-editor-button" data-url="{{ modalidadUrl }}">Modalidad</button>
+             <button class="button1 open-editor-button" data-url="{{ tecnicaturaUrl }}">Tecnicatura</button>
+             <button class="button1 open-editor-button" data-url="{{ turnoUrl }}">Turno</button>
+             <button class="button1 open-editor-button" data-url="{{ ofertaeducativaUrl }}">OfertaEducativa</button>
+             <button class="button1 open-editor-button" data-url="{{ preinscripcionUrl }}">Preinscripcion</button>
+         </div>
+    </div>
+    <div class="content" id="editorContainer">
+        <!-- Contenido Principal -->
+        <!-- Aquí se mostrará la ventana de edición -->            
+    </div>
+</div>
 
 
 {% endblock %}
