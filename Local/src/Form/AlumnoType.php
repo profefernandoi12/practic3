@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Alumno;
-use App\Entity\Persona;
+use App\Form\PersonaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

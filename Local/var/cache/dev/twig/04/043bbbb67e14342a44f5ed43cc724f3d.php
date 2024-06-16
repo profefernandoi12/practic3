@@ -89,20 +89,24 @@ class __TwigTemplate_58bfe5524758c3fa897769968051557c extends Template
         // line 6
         yield "    <h1>Editar Correlativa</h1>
 
-    ";
+     ";
         // line 8
-        yield Twig\Extension\CoreExtension::include($this->env, $context, "correlativa/_form.html.twig", ["button_label" => "Aceptar"]);
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), 'form_start');
+        yield "
+        ";
+        // line 9
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 9, $this->source); })()), 'widget');
+        yield "
+        <button class=\"btn btn-primary\">Guardar</button>
+    ";
+        // line 11
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 11, $this->source); })()), 'form_end');
         yield "
 
     <a href=\"";
-        // line 10
+        // line 13
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_index");
         yield "\">Volver a la lista</a>
-
-    ";
-        // line 12
-        yield Twig\Extension\CoreExtension::include($this->env, $context, "correlativa/_delete_form.html.twig");
-        yield "
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -134,7 +138,7 @@ class __TwigTemplate_58bfe5524758c3fa897769968051557c extends Template
      */
     public function getDebugInfo()
     {
-        return array (  104 => 12,  99 => 10,  94 => 8,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
+        return array (  108 => 13,  103 => 11,  98 => 9,  94 => 8,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -146,12 +150,12 @@ class __TwigTemplate_58bfe5524758c3fa897769968051557c extends Template
 {% block body %}
     <h1>Editar Correlativa</h1>
 
-    {{ include('correlativa/_form.html.twig', {'button_label': 'Aceptar'}) }}
+     {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class=\"btn btn-primary\">Guardar</button>
+    {{ form_end(form) }}
 
     <a href=\"{{ path('app_correlativa_index') }}\">Volver a la lista</a>
-
-    {{ include('correlativa/_delete_form.html.twig') }}
-{% endblock %}
-", "correlativa/edit.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\correlativa\\edit.html.twig");
+{% endblock %}", "correlativa/edit.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\correlativa\\edit.html.twig");
     }
 }

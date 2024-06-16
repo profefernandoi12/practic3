@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 
 use App\Repository\CorrelativaRepository;
@@ -20,6 +19,9 @@ class Correlativa
 
     #[ORM\Column(length: 255)]
     private ?string $nombre = null;
+
+    #[ORM\ManyToMany(targetEntity: Asignatura::class)]
+    private Collection $asignaturas;
 
 
 
@@ -56,6 +58,30 @@ class Correlativa
     public function setNombre(string $nombre): static
     {
         $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Asignatura>
+     */
+    public function getAsignaturas(): Collection
+    {
+        return $this->asignaturas;
+    }
+
+    public function addAsignatura(Asignatura $asignatura): static
+    {
+        if (!$this->asignaturas->contains($asignatura)) {
+            $this->asignaturas->add($asignatura);
+        }
+
+        return $this;
+    }
+
+    public function removeAsignatura(Asignatura $asignatura): static
+    {
+        $this->asignaturas->removeElement($asignatura);
 
         return $this;
     }

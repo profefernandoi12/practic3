@@ -294,6 +294,6 @@ class __TwigTemplate_4f24ab08e8df634735c140b02a0973ae extends Template
 
     <a href=\"{{ path('app_alumno_new') }}\">Nuevo Estudiante</a>
 {% endblock %}
-", "alumno/index.html.twig", "C:\\xampp\\htdocs\\GitHub\\practic3\\Local\\templates\\alumno\\index.html.twig");
+", "alumno/index.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\alumno\\index.html.twig");
     }
 }

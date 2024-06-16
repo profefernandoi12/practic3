@@ -95,6 +95,6 @@ class __TwigTemplate_6cd3b040da47bd7d7d66a9e0fd0cf97e extends Template
     {{ form_widget(form) }}
     <button class=\"btn btn-success mt-1\">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
-", "alumno/_form.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\alumno\\_form.html.twig");
+", "alumno/_form.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\alumno\\_form.html.twig");
     }
 }

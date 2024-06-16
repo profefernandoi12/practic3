@@ -13,11 +13,3 @@ search_tecnicatura:
 search_docente:
   path: /search_docente
   controller: App\Controller\DocenteController::search_docente
-
-app_docente_persona:
-  path: /app_docente_persona
-  controller: App\Controller\DocenteController::add_docente_persona
-
-app_alumno_persona:
-  path: /app_alumno_persona
-  controller: App\Controller\AlumnoController::add_alumno_persona

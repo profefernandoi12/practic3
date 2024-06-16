@@ -152,6 +152,6 @@ class __TwigTemplate_4819b585ae476bd322f8c50a0f507285 extends Template
 
     {{ include('alumno/_delete_form.html.twig') }}
 {% endblock %}
-", "alumno/edit.html.twig", "C:\\xampp\\htdocs\\Local\\templates\\alumno\\edit.html.twig");
+", "alumno/edit.html.twig", "C:\\xampp\\htdocs\\practic3\\Local\\templates\\alumno\\edit.html.twig");
     }
 }

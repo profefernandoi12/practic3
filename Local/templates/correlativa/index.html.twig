@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Tecnicatura</th>
                 <th>Para aprobar</th>
                 <th>Deberá tener aprobado</th>
                 <th>Acciones</th>
@@ -18,8 +19,13 @@
         {% for correlativa in correlativas %}
             <tr>
                 <td>{{ correlativa.id }}</td>
-                <td>{{correlativa.asignatura.nombre}}</td>
-                <td>{{correlativa.nombre}}</td>
+                <td>{{correlativa.asignatura.Tecnicatura}}</td>
+                <td>{{ correlativa.asignatura.nombre }}</td>
+                <td>
+                    {% for asignatura in correlativa.asignatura %}
+                        {{ asignatura.nombre }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
               
                 <td>
                     <a href="{{ path('app_correlativa_show', {'id': correlativa.id}) }}">Mostrar</a>
@@ -35,6 +41,7 @@
             </tr>
         {% endfor %}
         </tbody>
+
     </table>
 {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
 
